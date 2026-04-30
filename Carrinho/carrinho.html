@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho - Programação</title>
+  <link rel="stylesheet" href="carrinho.css">
+  <script src="carrinho.js" defer></script>
+</head>
+
+<body>
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙 Modo escuro</button>
+
+<header class="topbar">
+  <div class="menu-principal">
+    <a href="../Reunioes/reunioes.html">Reuniões</a>
+    <a href="../Campo/campo.html">Campo</a>
+    <a href="../Limpeza/limpeza.html">Limpeza</a>
+  </div>
+
+  <div class="submenu">
+    <a href="../Campo/campo.html">Saídas</a>
+    <a href="../Grupos/grupos.html">Grupos</a>
+    <a class="ativo" href="carrinho.html">Carrinho</a>
+  </div>
+</header>
+
+<div class="container">
+  <h1 class="titulo-pagina">Testemunho Público</h1>
+
+  <div class="seletor-semana">
+    <button onclick="trocarSemana(1)">Semana 1</button>
+    <button onclick="trocarSemana(2)">Semana 2</button>
+    <button onclick="trocarSemana(3)">Semana 3</button>
+    <button onclick="trocarSemana(4)">Semana 4</button>
+    <button onclick="trocarSemana(5)">Semana 5</button>
+  </div>
+
+  <hr class="divisor">
+
+  <!-- SEMANA 1 -->
+  <div class="card semana ativa" id="semana1">
+    <div class="cabecalho-dia">Sábado Manhã</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Sábado Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Domingo Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- SEMANAS 2 A 5 (REPETIR ESTRUTURA ACIMA) -->
+  <div class="card semana" id="semana2">
+     <div class="cabecalho-dia">Sábado Manhã</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Sábado Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Domingo Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+  </div>
+    
+   <div class="card semana" id="semana3">
+     <div class="cabecalho-dia">Sábado Manhã</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Sábado Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Domingo Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+  </div>
+   <div class="card semana" id="semana4">
+     <div class="cabecalho-dia">Sábado Manhã</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Sábado Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Domingo Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+  </div>
+ <div class="card semana" id="semana5">
+     <div class="cabecalho-dia">Sábado Manhã</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>8:00 às 10:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>10:00 às 11:30</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Sábado Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Portão</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>13:00 às 15:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+
+    <div class="cabecalho-dia">Domingo Tarde</div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 1</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Portão</td></tr>
+      </table>
+    </div>
+    <div class="tabela-carrinho-container">
+      <div class="label-carrinho">CARRINHO 2</div>
+      <table class="tabela-dados">
+        <tr><th>HORÁRIO</th><th>PARTICIPANTES</th><th>LOCAL</th></tr>
+        <tr><td>15:00 às 17:00</td><td>NOME NOME</td><td>Av. Brasil</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

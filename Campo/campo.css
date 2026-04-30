@@ -1,0 +1,190 @@
+/* --- RESET TOTAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- VARIÁVEIS --- */
+:root {
+    --bg-body: #f8f9fa;
+    --bg-card: #ffffff;
+    --texto-principal: #202124;
+    --texto-secundario: #5f6368;
+    --borda: #dadce0;
+    --verde-primario: #38761d;
+    --domingo-cor: #d93025;
+    --sombra: 0 1px 3px rgba(60,64,67,0.3);
+}
+
+body:not(.light-mode) {
+    --bg-body: #121212;
+    --bg-card: #1e1e1e;
+    --texto-principal: #ffffff;
+    --texto-secundario: #b0b3b8;
+    --borda: #3c4043;
+    --verde-primario: #4dfd53; /* Verde neon para destacar no escuro */
+    --sombra: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--texto-principal);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* --- TOPBAR CENTRALIZADA --- */
+.topbar {
+    width: 100%;
+    background: var(--bg-card);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--borda);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza as linhas do menu */
+    justify-content: center;
+}
+
+.menu-principal, .submenu {
+    display: flex;
+    justify-content: center; /* Centraliza os links na linha */
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.submenu { margin-bottom: 0; }
+
+.topbar a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+body:not(.light-mode) .topbar a { color: #ffffff; }
+
+.topbar a:hover, .topbar a.ativo {
+    color: var(--verde-primario) !important;
+}
+
+/* --- CARDS E TABELAS --- */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    margin-bottom: 25px;
+    border: 1px solid var(--borda);
+    overflow: hidden;
+}
+
+/* CENTRALIZAÇÃO DO TÍTULO (Sábado Manhã / Domingo) */
+.cabecalho-dia {
+    padding: 12px;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center; /* ESTA LINHA CENTRALIZA O TEXTO */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.tabela-dados {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-dados th {
+    background: rgba(0,0,0,0.05);
+    color: var(--texto-secundario);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabela-dados td {
+    padding: 14px 12px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--borda);
+    color: var(--texto-principal);
+    font-weight: 500;
+}
+
+/* Destaque para nomes no Modo Dark */
+body:not(.light-mode) b, 
+body:not(.light-mode) strong {
+    color: var(--verde-primario);
+}
+
+/* --- BOTÃO MODO ESCURO --- */
+.dark-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 2000;
+    font-weight: bold;
+}
+
+/* --- AJUSTE PARA O TÍTULO PRINCIPAL --- */
+.titulo-pagina {
+    text-align: center; /* Centraliza o texto do H1 */
+    margin: 30px auto;
+    width: 100%;
+}
+
+/* --- AJUSTE PARA A PROGRAMAÇÃO SEMANAL (RODAPÉ) --- */
+.programacao-semanal {
+    text-align: center; /* Centraliza o título "Programação durante a semana" */
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo interno (grid) */
+}
+
+.grid-semanal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens da semana */
+    gap: 15px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.dia-item {
+    background: var(--bg-card);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--borda);
+    min-width: 200px; /* Garante um tamanho padrão para os itens */
+}
+
+/* Ajuste adicional para o texto da citação (Luc. 10:1) */
+.container > div[style*="text-align: center"] {
+    width: 100%;
+    display: block;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 600px) {
+    .menu-principal, .submenu {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+}

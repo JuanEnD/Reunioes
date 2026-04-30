@@ -1,0 +1,173 @@
+/* --- VARIÁVEIS DE CORES REFINADAS --- */
+:root {
+    /* Modo Claro - Mais suave e moderno */
+    --bg-body: #f0f2f5;          /* Cinza bem claro para o fundo */
+    --bg-card: #ffffff;          /* Branco puro para os cards */
+    --texto-principal: #1c1e21;  /* Quase preto para melhor leitura */
+    --texto-secundario: #4b4f56; /* Cinza escuro para detalhes */
+    --borda: #ebedf0;            /* Bordas muito sutis */
+    --verde-primario: #2d5a27;   /* Verde floresta mais elegante */
+    --verde-suave: #e8f5e9;      /* Fundo verde muito claro para labels */
+    --sombra: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* --- MODO ESCURO - Mantendo o padrão anterior --- */
+body:not(.light-mode) {
+    --bg-body: #121212;
+    --bg-card: #1e1e1e;
+    --texto-principal: #ffffff;
+    --texto-secundario: #b0b3b8;
+    --borda: #3c4043;
+    --verde-primario: #4dfd53; /* Verde vibrante para brilhar no escuro */
+    --verde-suave: rgba(77, 253, 83, 0.1);
+    --sombra: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+/* --- ESTILOS GERAIS --- */
+body {
+    background-color: var(--bg-body);
+    color: var(--texto-principal);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+/* --- TOPBAR REFINADA --- */
+.topbar {
+    background: var(--bg-card);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--borda);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-principal, .submenu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 8px;
+}
+
+.topbar a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.topbar a:hover, .topbar a.ativo {
+    color: var(--verde-primario) !important;
+}
+
+/* --- CONTAINER --- */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.titulo-pagina {
+    text-align: center;
+    font-weight: 700;
+    color: var(--texto-principal);
+    margin-bottom: 30px;
+}
+
+/* --- CARDS --- */
+.card {
+    background: var(--bg-card);
+    border-radius: 16px; /* Bordas mais arredondadas */
+    box-shadow: var(--sombra);
+    border: 1px solid var(--borda);
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+/* Remove o cabeçalho colorido antigo */
+.cabecalho-grupo {
+    display: none; 
+}
+
+/* Novo estilo para o título interno ao card */
+.titulo-grupo-interno {
+    display: block;
+    font-size: 1.5rem;          /* Tamanho maior */
+    font-weight: 900;           /* Negrito extra (Black) */
+    color: var(--texto-principal);
+    margin-bottom: 15px;        /* Espaço para o Dirigente abaixo */
+    text-align: left;           /* Alinhado à esquerda como na imagem */
+    letter-spacing: -0.5px;     /* Estilo moderno e robusto */
+}
+
+/* Garante que o corpo do grupo tenha o espaçamento correto */
+.corpo-grupo {
+    padding: 25px;
+}
+
+/* Ajuste sutil para o modo claro ficar mais bonito */
+body.light-mode .titulo-grupo-interno {
+    color: #000000;             /* Preto puro no modo claro */
+}
+
+/* --- CONTEÚDO DOS GRUPOS --- */
+.corpo-grupo {
+    padding: 24px;
+}
+
+.info-responsavel {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+.info-responsavel b {
+    color: var(--verde-primario);
+    font-weight: 600;
+}
+
+.label-membros {
+    background: var(--verde-suave);
+    color: var(--verde-primario);
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.lista-membros {
+    line-height: 1.6;
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+/* --- QUADRO DE AVISOS --- */
+#quadroEventos {
+    border-left: 6px solid var(--verde-primario);
+}
+
+/* --- BOTÃO MODO ESCURO --- */
+.dark-toggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    background: #1c1e21;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+.dark-toggle:active {
+    transform: scale(0.95);
+}

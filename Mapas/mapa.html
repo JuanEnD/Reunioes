@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Territórios da Congregação</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="menu-principal">
+        <a href="../Reunioes/reunioes.html">Reuniões</a><a href="#" class="ativo">Campo</a><a href="#">Limpeza</a>
+        <button id="btn-dark" onclick="toggleDarkMode()" style="background:none; border:none; cursor:pointer; font-size:1.2rem; margin-left:10px;">🌙</button>
+    </div>
+    <div class="submenu">
+        <a href="../Grupos/grupos.html">Grupos</a>
+        <a class="ativo" href="mapa.html">Mapa</a>
+    </div>
+</header>
+
+<input type="text" id="inputBusca" placeholder="🔍 Buscar mapa (ex: 01)" onkeyup="filtrarMapas()">
+
+<div class="seletores-grupo">
+    <button class="btn-grupo ativo" onclick="mostrarGrupo('parque-dois-irmaos', this)">Parque Dois Irmãos</button>
+    <button class="btn-grupo" onclick="mostrarGrupo('passare', this)">Passaré</button>
+    <button class="btn-grupo" onclick="mostrarGrupo('paroaras', this)">Paroaras</button>
+    <button class="btn-grupo" onclick="mostrarGrupo('marrocos', this)">Marrocos</button>
+    <button class="btn-grupo" onclick="mostrarGrupo('jardim-uniao', this)">Jardim União</button>
+</div>
+
+<div id="parque-dois-irmaos" class="secao-grupo ativa"><div class="grade-territorios" id="mapas-parque-dois-irmaos"></div></div>
+<div id="passare" class="secao-grupo"><div class="grade-territorios" id="mapas-passare"></div></div>
+<div id="paroaras" class="secao-grupo"><div class="grade-territorios" id="mapas-paroaras"></div></div>
+<div id="marrocos" class="secao-grupo"><div class="grade-territorios" id="mapas-marrocos"></div></div>
+<div id="jardim-uniao" class="secao-grupo"><div class="grade-territorios" id="mapas-jardim-uniao"></div></div>
+
+<div id="modal-info" onclick="fecharModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h2 id="modal-titulo" style="color:var(--primary); margin-top:0;"></h2>
+        <div id="modal-corpo"></div>
+        <button onclick="fecharModal()" style="width:100%; margin-top:20px; padding:15px; background:var(--primary); color:#fff; border:none; border-radius:10px; font-weight:bold;">FECHAR</button>
+    </div>
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>
