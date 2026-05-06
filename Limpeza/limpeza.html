@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Limpeza</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpeza - Fichas de Instrução</title>
+    <link rel="stylesheet" href="limpeza.css">
+    <script src="limpeza.js" defer></script>
 </head>
 
 <body>
+<!-- Botão flutuante para o modo noturno -->
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙 Alternar Tema</button>
 
 <header class="topbar">
   <div class="menu-principal">
@@ -17,17 +20,68 @@
   </div>
 
   <div class="submenu">
-    <a href="#">Escala</a>
-    <a href="#">Responsáveis</a>
+    <a class="ativo" href="limpeza.html">Fichas</a>
   </div>
 </header>
 
 <div class="container">
-  <div class="card">
-    <h2>🧹 Limpeza</h2>
-    <p>Organização da limpeza do salão.</p>
-  </div>
-</div>
+    <h1 class="titulo-pagina">Instruções de Limpeza</h1>
 
+    <!-- CARD: LIMPEZA A CADA REUNIÃO -->
+    <div class="card">
+        <div class="corpo-grupo">
+            <h2 class="titulo-grupo-interno">Limpeza a cada Reunião</h2>
+            
+            <div class="label-membros">TAREFAS PRINCIPAIS</div>
+            <ul class="lista-membros">
+                <li>Varrer ou aspirar o chão de todas as áreas.</li>
+                <li>Limpar vasos sanitários, mictórios e pias com desinfetante.</li>
+                <li>Abastecer papel higiênico, toalhas e sabonete.</li>
+                <li>Recolher e descartar todo o lixo.</li>
+                <li>Limpar espelhos e metais (torneiras).</li>
+            </ul>
+
+            <div class="espaco-imagem">
+                <!-- Ajustado para a pasta Imagens e o nome com 'z' conforme seu VS Code -->
+                <img src="Imagens/limpezaz-reuniao.png" alt="Instruções Reunião">
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD: LIMPEZA SEMANAL -->
+    <div class="card">
+        <div class="corpo-grupo">
+            <h2 class="titulo-grupo-interno">Limpeza Semanal</h2>
+            
+            <div class="label-membros">TAREFAS PROFUNDAS</div>
+            <ul class="lista-membros">
+                <li>Retirar teias de aranha do teto e luminárias.</li>
+                <li>Limpar portas, janelas, vidros e maçanetas.</li>
+                <li>Limpar a tribuna, mesa do palco e bebedouro.</li>
+                <li>Passar pano úmido em todo o piso (Mop).</li>
+            </ul>
+
+            <div class="espaco-imagem">
+                <img src="Imagens/limpezaz-semanal.png" alt="Instruções Semanal">
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD: PRODUTOS DE LIMPEZA -->
+    <div class="card aviso-alerta">
+        <div class="corpo-grupo">
+            <h2 class="titulo-grupo-interno">Produtos e Segurança</h2>
+            
+            <div class="espaco-imagem">
+                <img src="Imagens/produtos.png" alt="Instruções de Produtos">
+            </div>
+
+            <p class="lista-membros" style="margin-top: 20px;">
+                <b>Atenção:</b> Nunca misture produtos de limpeza, pois podem liberar gases tóxicos. Use sempre equipamentos de proteção como luvas.
+            </p>
+        </div>
+    </div>
+
+</div> 
 </body>
 </html>

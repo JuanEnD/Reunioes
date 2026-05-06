@@ -1,0 +1,206 @@
+/* --- VARIÁVEIS DE CORES (MODO ESCURO PADRÃO) --- */
+:root {
+    --bg-body: #121212;
+    --bg-card: #1e1e1e;
+    --texto-principal: #ffffff;
+    --texto-secundario: #b0b3b8;
+    --borda: #333333;
+    --verde-primario: #4dfd53;
+    --verde-suave: rgba(77, 253, 83, 0.1);
+    --sombra: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- VARIÁVEIS PARA MODO CLARO --- */
+body.light-mode {
+    --bg-body: #f0f2f5;
+    --bg-card: #ffffff;
+    --texto-principal: #1c1e21;
+    --texto-secundario: #4b4f56;
+    --borda: #ebedf0;
+    --verde-primario: #2d5a27;
+    --verde-suave: #e8f5e9;
+    --sombra: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* --- ESTILOS BASE --- */
+* {
+    box-sizing: border-box; /* Essencial para responsividade */
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--texto-principal);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* --- TOPBAR RESPONSIVA --- */
+.topbar {
+    background: var(--bg-card);
+    padding: 15px 10px;
+    border-bottom: 1px solid var(--borda);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu-principal, .submenu {
+    display: flex;
+    flex-wrap: wrap; /* Faz os itens quebrarem linha no celular */
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.topbar a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.topbar a.ativo {
+    color: var(--verde-primario) !important;
+}
+
+/* --- CONTAINER E TITULOS --- */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+.titulo-pagina {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+/* --- CARDS DE LIMPEZA --- */
+.card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    border: 1px solid var(--borda);
+    margin-bottom: 25px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.corpo-grupo {
+    padding: 20px;
+}
+
+.titulo-grupo-interno {
+    font-size: 1.5rem;
+    font-weight: 900; /* Destaque em negrito */
+    margin: 0 0 15px 0;
+    color: var(--texto-principal);
+}
+
+.label-membros {
+    background: var(--verde-suave);
+    color: var(--verde-primario);
+    padding: 6px 12px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- LISTAS --- */
+.lista-membros {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.lista-membros li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--borda);
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+.lista-membros li::before {
+    content: "✓ ";
+    color: var(--verde-primario);
+    font-weight: bold;
+}
+
+/* --- IMAGENS DAS FICHAS --- */
+.espaco-imagem {
+    width: 100%;
+    background: #000; /* Fundo preto para não cansar a vista no modo escuro */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.espaco-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.9; /* Suaviza o branco das fichas no escuro */
+}
+
+body.light-mode .espaco-imagem img {
+    opacity: 1;
+}
+
+/* --- BOTÃO MODO NOTURNO --- */
+.dark-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    background: var(--verde-primario);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    z-index: 2000;
+}
+
+/* --- ADAPTAÇÕES PARA CELULAR --- */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .titulo-pagina {
+        font-size: 1.5rem;
+    }
+
+    .corpo-grupo {
+        padding: 15px;
+    }
+
+    .titulo-grupo-interno {
+        font-size: 1.25rem;
+    }
+
+    .topbar a {
+        font-size: 0.8rem;
+        gap: 10px;
+    }
+}
+
+/* --- ESTILO PARA AVISO DE PRODUTOS --- */
+.aviso-alerta {
+    border-left: 6px solid #d93025; /* Vermelho para atenção[cite: 1] */
+}
