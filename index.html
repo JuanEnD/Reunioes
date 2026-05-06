@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Programação de Reuniões</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="Reunioes/script.js" defer></script>
+</head>
+<body class="pagina-reunioes">
+
+<header class="topbar">
+    <div class="menu-principal">
+        <a class="ativo" href="#">Reuniões</a>
+        <a href="../Campo/campo.html">Campo</a>
+        <a href="../Limpeza/limpeza.html">Limpeza</a>
+        <button id="btn-dark" onclick="toggleDarkMode()" style="background:none; border:none; cursor:pointer; font-size:1.1rem; margin-left:10px;">🌙</button>
+    </div>
+    <div class="submenu">
+        <a href="javascript:void(0)" onclick="abrirEventos()">🔔 Avisos</a>
+        <a href="javascript:void(0)" onclick="abrirDonativos()">💰 Donativos</a>
+        <a href="../Grupos/grupos.html">Grupos</a>
+        <a href="..\Mapas/mapa.html">Mapa</a>
+    </div>
+</header>
+
+<div class="reunioes-container">
+    <h1 class="titulo-pagina" style="text-align: center; font-size: 1.2rem; margin: 20px 0;">Programação de Reuniões</h1>
+
+    <div class="seletor-semana" style="display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; margin-bottom: 20px;">
+        <button class="btn-semana ativo" onclick="trocarSemana(1, this)">Semana 1</button>
+        <button class="btn-semana" onclick="trocarSemana(2, this)">Semana 2</button>
+        <button class="btn-semana" onclick="trocarSemana(3, this)">Semana 3</button>
+        <button class="btn-semana" onclick="trocarSemana(4, this)">Semana 4</button>
+        <button class="btn-semana" onclick="trocarSemana(5, this)">Semana 5</button>
+    </div>
+
+  <div class="semana-bloco ativa" id="semana1">
+    <h2 class="data-destaque">Semana 1</h2>
+  <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
+        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #c62828;">
+        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
+    </div>
+
+  <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
+        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
+        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #38761d;">
+        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
+    </div>
+</div>
+
+<div class="semana-bloco" id="semana2" style="display:none;">
+    <h2 class="data-destaque">Semana 2</h2>
+    
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
+        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #c62828;">
+        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
+    </div>
+
+  <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
+        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
+        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #38761d;">
+        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
+    </div>
+</div>
+    
+
+    <div class="semana-bloco" id="semana3" style="display:none;">
+    <h2 class="data-destaque">Semana 3</h2>
+    
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
+        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #c62828;">
+        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
+    </div>
+
+      <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
+        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
+        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #38761d;">
+        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
+    </div>
+</div>
+
+   <div class="semana-bloco" id="semana4" style="display:none;">
+    <h2 class="data-destaque">Semana 4</h2>
+    
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
+        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #c62828;">
+        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
+    </div>
+
+  <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
+        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
+        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #38761d;">
+        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
+    </div>
+</div>
+
+   <div class="semana-bloco" id="semana5" style="display:none;">
+    <h2 class="data-destaque">Semana 5</h2>
+    
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+        <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
+        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #c62828;">
+        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
+        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
+        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
+        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    </div>
+
+    <div class="item-reuniao" style="border-left-color: #38761d;">
+        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
+        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
+    </div>
+</div>
+
+<div id="modal-info" class="modal" onclick="fecharModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h2 id="modal-titulo" style="color:var(--primary); margin-top:0; font-size: 1.2rem;"></h2>
+        <div id="modal-corpo" style="margin: 20px 0;"></div>
+        <button onclick="fecharModal()" class="btn-fechar">FECHAR</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
