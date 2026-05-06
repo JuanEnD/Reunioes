@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/",
-      "destination": "Reunioes/reunioes.html"
+      "source": "/((?!.*\\.).*)",
+      "destination": "/reunioes.html"
     }
   ]
 }
