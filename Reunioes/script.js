@@ -52,7 +52,7 @@ function abrirEventos() {
     const titulo = document.getElementById('modal-titulo');
     const corpo = document.getElementById('modal-corpo');
 
-    titulo.innerText = "🔔 Avisos da Semana";
+    titulo.innerText = "🔔 Avisos";
     
     // Aqui você pode editar os avisos conforme a necessidade da semana
     corpo.innerHTML = `
@@ -113,14 +113,12 @@ window.onclick = function(event) {
 
 function abrirEventos() {
     const modal = document.getElementById('modal-info');
-    document.getElementById('modal-titulo').innerText = "🔔 Avisos da Semana";
+    document.getElementById('modal-titulo').innerText = "🔔 Avisos";
     
     // Conteúdo formatado igual ao sistema anterior
     document.getElementById('modal-corpo').innerHTML = `
         <div style="text-align: left; padding: 10px; line-height: 1.6;">
-            <p>• <b>Limpeza semanal:</b> Parque Dois Irmãos.</p>
-            <p>• <b>Limpeza após a reunião:</b> Marrocos.</p>
-            <p>• <b>Saídas de campo:</b> Terça a Sexta às 08h.</p>
+            <p>• <b>Congresso:</b> 27 a 29 de Julho de 2026.</p>        
             <hr style="border: 0; border-top: 1px solid #444; margin: 15px 0;">
             <p style="font-size: 0.85rem; color: #aaa;">Verifique o quadro de anúncios para mais detalhes.</p>
         </div>
