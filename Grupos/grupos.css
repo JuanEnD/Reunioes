@@ -1,7 +1,7 @@
-/* --- 1. VARIÁVEIS (Padronização Total) --- */
+/* --- 1. VARIÁVEIS E CORES (Padronização) --- */
 :root {
     --bg-corpo: #121212;   /* Fundo da página */
-    --bg-topo: #1e1e1e;    /* Fundo da Topbar e Submenu (Cinza igual aos cards) */
+    --bg-topo: #1e1e1e;    /* Fundo da Topbar, Submenu e Cards */
     --texto-p: #ffffff;
     --texto-s: #b0b3b8;
     --borda: #3c4043;
@@ -11,7 +11,7 @@
 
 body.light-mode {
     --bg-corpo: #f8f9fa;
-    --bg-topo: #ffffff;    /* Branco no modo claro */
+    --bg-topo: #ffffff;
     --texto-p: #202124;
     --texto-s: #5f6368;
     --borda: #dadce0;
@@ -27,11 +27,12 @@ body {
     transition: 0.3s;
 }
 
-/* --- 2. NAVEGAÇÃO (Resolvendo o erro de cores) --- */
+/* --- 2. CABEÇALHO (Topbar e Submenu Unificados) --- */
 .topbar {
-    background-color: var(--bg-topo); 
-    padding: 10px 0 0 0; /* Tiramos o padding de baixo para colar no submenu */
+    background-color: var(--bg-topo);
+    padding: 10px 0 0 0;
     text-align: center;
+    border-bottom: none;
 }
 
 .menu-principal {
@@ -48,14 +49,14 @@ body {
     font-weight: bold;
     padding: 10px 15px;
     border-radius: 8px;
+    transition: 0.3s;
 }
 
-/* O SUBMENU agora segue EXATAMENTE a mesma cor da Topbar */
 .submenu {
     display: flex;
     justify-content: center;
     gap: 10px;
-    background-color: var(--bg-topo); /* AGORA IGUAL À PARTE DE CIMA */
+    background-color: var(--bg-topo); /* Mesma cor da parte de cima */
     padding: 15px 0;
     border-bottom: 1px solid var(--borda);
 }
@@ -76,27 +77,29 @@ body {
     background: rgba(77, 253, 83, 0.05);
 }
 
-/* --- 3. CONTEÚDO E CARDS --- */
-.container {
+/* --- 3. CONTAINER E CARDS --- */
+.reunioes-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.titulo-pagina {
+.semana-titulo {
     text-align: center;
     color: var(--verde);
     margin: 30px 0;
     text-transform: uppercase;
+    font-size: 1.5rem;
 }
 
 .card {
-    background: var(--bg-topo); /* Mesma cor do menu para harmonia */
+    background: var(--bg-topo);
     border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-left: 6px solid var(--verde);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--verde);
     box-shadow: var(--sombra);
+    text-align: left;
     border-top: 1px solid var(--borda);
     border-right: 1px solid var(--borda);
     border-bottom: 1px solid var(--borda);
@@ -104,17 +107,86 @@ body {
 
 .titulo-grupo-interno {
     color: var(--verde);
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.info-responsavel {
+    margin: 5px 0;
+    font-size: 0.95rem;
 }
 
 .label-membros {
     background: rgba(77, 253, 83, 0.1);
     color: var(--verde);
-    padding: 5px 12px;
+    padding: 4px 10px;
     border-radius: 6px;
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     display: inline-block;
-    margin: 15
+    margin: 15px 0 8px;
+}
+
+.lista-membros {
+    color: var(--texto-s);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* --- 4. POP-UP (MODAL CENTRALIZADO) --- */
+.modal {
+    position: fixed;
+    z-index: 9999; /* Garante que fica acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Escurece o fundo */
+    display: none; /* Ativado via JS (flex) */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    background-color: var(--bg-topo);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid var(--verde);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.btn-fechar {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: var(--verde);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-fechar:hover {
+    filter: brightness(1.2);
+}
+
+/* --- 5. AJUSTES MOBILE --- */
+@media (max-width: 480px) {
+    .menu-principal { gap: 8px; }
+    .menu-principal a { padding: 8px 10px; font-size: 0.9rem; }
+    .submenu { gap: 5px; }
+    .submenu a { padding: 6px 12px; font-size: 0.75rem; }
+}
