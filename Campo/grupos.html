@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupos - Programação</title>
+    <link rel="stylesheet" href="grupos.css">
+    <script src="../Grupos/grupos.js" defer></script>
+</head>
+
+<body>
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙 Modo escuro</button>
+
+<header class="topbar">
+  <div class="menu-principal">
+    <a href="/">Reuniões</a>
+    <a href="../Campo/campo.html">Campo</a>
+    <a href="../Limpeza/limpeza.html">Limpeza</a>
+  </div>
+
+  <div class="submenu">
+    <a href="javascript:void(0)" onclick="abrirEventos()">🔔 Avisos</a>
+    <a class="ativo" href="grupos.html">Grupos</a>
+    <a href="../Carrinho/carrinho.html">Carrinho</a>
+  </div>
+</header>
+
+<div class="container">
+    <!-- Quadro de Avisos (Invisível por padrão) -->
+    <div class="card avisos-container" id="quadroEventos" style="display: none;">
+        <div class="cabecalho-dia" style="position: relative;">
+            Avisos dos Grupos
+            <span onclick="fecharEventos()" style="position: absolute; right: 15px; cursor: pointer;">✕</span>
+        </div>
+        <div class="tabela-carrinho-container" style="padding: 20px;">
+            <p><b>Congresso de 2026</b> 27 a 29 de Julho</p>
+        </div>
+    </div>
+
+    <h1 class="titulo-pagina" style="margin: 20px 0;">Grupos de Serviço</h1>
+
+    <!-- Grupo 1 -->
+ <div class="card">
+    <div class="corpo-grupo">
+        <h2 class="titulo-grupo-interno">Grupo 1</h2> <!-- Título movido para aqui -->
+        
+        <p class="info-responsavel"><b>Dirigente:</b> Nome do Irmão</p>
+        <p class="info-responsavel"><b>Ajudante:</b> Nome do Irmão</p>
+        
+        <div class="label-membros">MEMBROS</div>
+        <p class="lista-membros">
+            Irmão H, Irmã I, Irmão J, Irmã K, Irmão L, Irmã M.
+        </p>
+    </div>
+</div>
+
+    <!-- Grupo 2 -->
+   <div class="card">
+    <div class="corpo-grupo">
+        <h2 class="titulo-grupo-interno">Grupo 2</h2> <!-- Título movido para aqui -->
+        
+        <p class="info-responsavel"><b>Dirigente:</b> Nome do Irmão</p>
+        <p class="info-responsavel"><b>Ajudante:</b> Nome do Irmão</p>
+        
+        <div class="label-membros">MEMBROS</div>
+        <p class="lista-membros">
+            Irmão H, Irmã I, Irmão J, Irmã K, Irmão L, Irmã M.
+        </p>
+    </div>
+</div>
+    <!-- Grupo 3 -->
+  <div class="card">
+    <div class="corpo-grupo">
+        <h2 class="titulo-grupo-interno">Grupo 3</h2> <!-- Título movido para aqui -->
+        
+        <p class="info-responsavel"><b>Dirigente:</b> Nome do Irmão</p>
+        <p class="info-responsavel"><b>Ajudante:</b> Nome do Irmão</p>
+        
+        <div class="label-membros">MEMBROS</div>
+        <p class="lista-membros">
+            Irmão H, Irmã I, Irmão J, Irmã K, Irmão L, Irmã M.
+        </p>
+    </div>
+</div>
+    <!-- Grupo 4 -->
+    <div class="card">
+    <div class="corpo-grupo">
+        <h2 class="titulo-grupo-interno">Grupo 4</h2> <!-- Título movido para aqui -->
+        
+        <p class="info-responsavel"><b>Dirigente:</b> Nome do Irmão</p>
+        <p class="info-responsavel"><b>Ajudante:</b> Nome do Irmão</p>
+        
+        <div class="label-membros">MEMBROS</div>
+        <p class="lista-membros">
+            Irmão H, Irmã I, Irmão J, Irmã K, Irmão L, Irmã M.
+        </p>
+    </div>
+</div>
+
+
+
+</div> 
+</body>
+</html>
