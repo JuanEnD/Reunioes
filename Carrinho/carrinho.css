@@ -119,3 +119,52 @@ body:not(.light-mode) .label-carrinho { background: rgba(255,255,255,0.05); }
     cursor: pointer;
     z-index: 1000;
 }
+
+/* Estilos para a tabela */
+.tabela-dados { 
+    width: 100%; 
+    border-collapse: collapse; 
+    table-layout: fixed; /* Força a tabela a respeitar a largura da tela */
+}
+
+.tabela-dados th, .tabela-dados td {
+    padding: 10px 8px; /* Reduzi um pouco o padding para ganhar espaço */
+    border-bottom: 1px solid var(--borda);
+    text-align: left;
+    word-wrap: break-word; /* Faz o nome quebrar linha se for muito grande */
+    font-size: 0.9rem; /* Diminui levemente a fonte no geral */
+}
+
+/* Define larguras específicas para as colunas não brigarem */
+.tabela-dados th:nth-child(1), 
+.tabela-dados td:nth-child(1) { 
+    width: 80px; /* Coluna de Horário fixa */
+}
+
+.tabela-dados th:nth-child(2), 
+.tabela-dados td:nth-child(2) { 
+    width: auto; /* Coluna de Participantes cresce conforme necessário */
+}
+
+/* --- AJUSTE PARA CELULAR (Mobile) --- */
+@media (max-width: 600px) {
+    .tabela-dados th, .tabela-dados td {
+        font-size: 0.8rem; /* Letras menores para caber o nome */
+        padding: 8px 4px;
+    }
+
+    .topbar {
+        padding: 10px 0;
+    }
+
+    .menu-principal, .submenu {
+        gap: 10px; /* Aproxima os links do menu no celular */
+        font-size: 0.85rem;
+    }
+
+    /* Opcional: Esconder o título "PARTICIPANTES" para ganhar espaço */
+    .tabela-dados th:nth-child(3), 
+    .tabela-dados td:nth-child(3) { 
+        font-size: 0.75rem; /* Coluna de Local menor */
+    }
+}
