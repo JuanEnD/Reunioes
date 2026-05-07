@@ -1,173 +1,119 @@
-/* --- VARIÁVEIS DE CORES REFINADAS --- */
+/* --- VARIÁVEIS E BASE --- */
 :root {
-    /* Modo Claro - Mais suave e moderno */
-    --bg-body: #f0f2f5;          /* Cinza bem claro para o fundo */
-    --bg-card: #ffffff;          /* Branco puro para os cards */
-    --texto-principal: #1c1e21;  /* Quase preto para melhor leitura */
-    --texto-secundario: #4b4f56; /* Cinza escuro para detalhes */
-    --borda: #ebedf0;            /* Bordas muito sutis */
-    --verde-primario: #2d5a27;   /* Verde floresta mais elegante */
-    --verde-suave: #e8f5e9;      /* Fundo verde muito claro para labels */
-    --sombra: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --bg-body: #f8f9fa;
+    --bg-card: #ffffff;
+    --texto-principal: #202124;
+    --texto-secundario: #5f6368;
+    --borda: #dadce0;
+    --verde-primario: #38761d;
+    --sombra: 0 1px 3px rgba(60,64,67,0.3);
 }
 
-/* --- MODO ESCURO - Mantendo o padrão anterior --- */
 body:not(.light-mode) {
     --bg-body: #121212;
     --bg-card: #1e1e1e;
     --texto-principal: #ffffff;
     --texto-secundario: #b0b3b8;
     --borda: #3c4043;
-    --verde-primario: #4dfd53; /* Verde vibrante para brilhar no escuro */
-    --verde-suave: rgba(77, 253, 83, 0.1);
+    --verde-primario: #4dfd53;
     --sombra: 0 4px 15px rgba(0,0,0,0.6);
 }
 
-/* --- ESTILOS GERAIS --- */
 body {
     background-color: var(--bg-body);
     color: var(--texto-principal);
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    transition: all 0.3s ease;
+    transition: background 0.3s;
 }
 
-/* --- TOPBAR REFINADA --- */
+/* --- NAVEGAÇÃO --- */
 .topbar {
     background: var(--bg-card);
     padding: 15px 0;
     border-bottom: 1px solid var(--borda);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .menu-principal, .submenu {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 8px;
 }
 
 .topbar a {
     color: var(--texto-secundario);
     text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
-.topbar a:hover, .topbar a.ativo {
-    color: var(--verde-primario) !important;
-}
+.topbar a.ativo { color: var(--verde-primario) !important; }
 
-/* --- CONTAINER --- */
-.container {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-.titulo-pagina {
-    text-align: center;
-    font-weight: 700;
-    color: var(--texto-principal);
-    margin-bottom: 30px;
-}
-
-/* --- CARDS --- */
+/* --- TABELA RESPONSIVA --- */
 .card {
     background: var(--bg-card);
-    border-radius: 16px; /* Bordas mais arredondadas */
+    border-radius: 12px;
     box-shadow: var(--sombra);
-    border: 1px solid var(--borda);
-    margin-bottom: 25px;
+    margin: 20px auto;
+    max-width: 900px;
     overflow: hidden;
+    border: 1px solid var(--borda);
 }
 
-/* Remove o cabeçalho colorido antigo */
-.cabecalho-grupo {
-    display: none; 
+.cabecalho-dia {
+    background: var(--verde-primario);
+    color: #000;
+    padding: 12px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-/* Novo estilo para o título interno ao card */
-.titulo-grupo-interno {
-    display: block;
-    font-size: 1.5rem;          /* Tamanho maior */
-    font-weight: 900;           /* Negrito extra (Black) */
-    color: var(--texto-principal);
-    margin-bottom: 15px;        /* Espaço para o Dirigente abaixo */
-    text-align: left;           /* Alinhado à esquerda como na imagem */
-    letter-spacing: -0.5px;     /* Estilo moderno e robusto */
+.tabela-dados {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Força o respeito às margens */
 }
 
-/* Garante que o corpo do grupo tenha o espaçamento correto */
-.corpo-grupo {
-    padding: 25px;
+.tabela-dados th, .tabela-dados td {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--borda);
+    text-align: left;
+    word-wrap: break-word; /* Quebra nomes longos */
+    font-size: 0.9rem;
 }
 
-/* Ajuste sutil para o modo claro ficar mais bonito */
-body.light-mode .titulo-grupo-interno {
-    color: #000000;             /* Preto puro no modo claro */
+/* Larguras das colunas */
+.tabela-dados th:nth-child(1) { width: 25%; } /* Horário */
+.tabela-dados th:nth-child(2) { width: 50%; } /* Participantes */
+.tabela-dados th:nth-child(3) { width: 25%; } /* Local */
+
+/* --- MOBILE (CELULAR) --- */
+@media (max-width: 600px) {
+    .tabela-dados th, .tabela-dados td {
+        font-size: 0.75rem;
+        padding: 8px 4px;
+    }
+    .menu-principal, .submenu { gap: 10px; }
 }
 
-/* --- CONTEÚDO DOS GRUPOS --- */
-.corpo-grupo {
-    padding: 24px;
-}
-
-.info-responsavel {
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-}
-
-.info-responsavel b {
-    color: var(--verde-primario);
-    font-weight: 600;
-}
-
-.label-membros {
-    background: var(--verde-suave);
-    color: var(--verde-primario);
-    padding: 6px 12px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: inline-block;
-}
-
-.lista-membros {
-    line-height: 1.6;
-    color: var(--texto-secundario);
-    font-size: 0.95rem;
-}
-
-/* --- QUADRO DE AVISOS --- */
-#quadroEventos {
-    border-left: 6px solid var(--verde-primario);
-}
-
-/* --- BOTÃO MODO ESCURO --- */
 .dark-toggle {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
-    padding: 12px 24px;
-    border-radius: 50px;
-    background: #1c1e21;
-    color: #ffffff;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: var(--verde-primario);
+    color: #000;
+    font-weight: bold;
     border: none;
     cursor: pointer;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 1000;
-    transition: transform 0.2s;
-}
-
-.dark-toggle:active {
-    transform: scale(0.95);
+    z-index: 2000;
 }
