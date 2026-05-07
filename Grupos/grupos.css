@@ -1,119 +1,120 @@
-/* --- VARIÁVEIS E BASE --- */
+/* --- 1. VARIÁVEIS (Padronização Total) --- */
 :root {
-    --bg-body: #f8f9fa;
-    --bg-card: #ffffff;
-    --texto-principal: #202124;
-    --texto-secundario: #5f6368;
-    --borda: #dadce0;
-    --verde-primario: #38761d;
-    --sombra: 0 1px 3px rgba(60,64,67,0.3);
+    --bg-corpo: #121212;   /* Fundo da página */
+    --bg-topo: #1e1e1e;    /* Fundo da Topbar e Submenu (Cinza igual aos cards) */
+    --texto-p: #ffffff;
+    --texto-s: #b0b3b8;
+    --borda: #3c4043;
+    --verde: #4dfd53;
+    --sombra: 0 4px 12px rgba(0,0,0,0.5);
 }
 
-body:not(.light-mode) {
-    --bg-body: #121212;
-    --bg-card: #1e1e1e;
-    --texto-principal: #ffffff;
-    --texto-secundario: #b0b3b8;
-    --borda: #3c4043;
-    --verde-primario: #4dfd53;
-    --sombra: 0 4px 15px rgba(0,0,0,0.6);
+body.light-mode {
+    --bg-corpo: #f8f9fa;
+    --bg-topo: #ffffff;    /* Branco no modo claro */
+    --texto-p: #202124;
+    --texto-s: #5f6368;
+    --borda: #dadce0;
+    --verde: #38761d;
+    --sombra: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 body {
-    background-color: var(--bg-body);
-    color: var(--texto-principal);
-    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-corpo);
+    color: var(--texto-p);
     margin: 0;
-    transition: background 0.3s;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    transition: 0.3s;
 }
 
-/* --- NAVEGAÇÃO --- */
+/* --- 2. NAVEGAÇÃO (Resolvendo o erro de cores) --- */
 .topbar {
-    background: var(--bg-card);
-    padding: 15px 0;
-    border-bottom: 1px solid var(--borda);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-color: var(--bg-topo); 
+    padding: 10px 0 0 0; /* Tiramos o padding de baixo para colar no submenu */
+    text-align: center;
 }
 
-.menu-principal, .submenu {
+.menu-principal {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 15px;
-    margin-bottom: 8px;
+    padding: 10px;
 }
 
-.topbar a {
-    color: var(--texto-secundario);
+.menu-principal a {
+    color: var(--texto-p);
     text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+/* O SUBMENU agora segue EXATAMENTE a mesma cor da Topbar */
+.submenu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--bg-topo); /* AGORA IGUAL À PARTE DE CIMA */
+    padding: 15px 0;
+    border-bottom: 1px solid var(--borda);
+}
+
+.submenu a {
+    color: var(--texto-s);
+    text-decoration: none;
+    font-size: 0.85rem;
     font-weight: 600;
-    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.3s;
 }
 
-.topbar a.ativo { color: var(--verde-primario) !important; }
-
-/* --- TABELA RESPONSIVA --- */
-.card {
-    background: var(--bg-card);
-    border-radius: 12px;
-    box-shadow: var(--sombra);
-    margin: 20px auto;
-    max-width: 900px;
-    overflow: hidden;
-    border: 1px solid var(--borda);
+.submenu a.ativo {
+    color: var(--verde);
+    border: 1px solid var(--verde);
+    background: rgba(77, 253, 83, 0.05);
 }
 
-.cabecalho-dia {
-    background: var(--verde-primario);
-    color: #000;
-    padding: 12px;
-    font-weight: 800;
+/* --- 3. CONTEÚDO E CARDS --- */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.titulo-pagina {
     text-align: center;
+    color: var(--verde);
+    margin: 30px 0;
     text-transform: uppercase;
 }
 
-.tabela-dados {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* Força o respeito às margens */
-}
-
-.tabela-dados th, .tabela-dados td {
-    padding: 12px 8px;
+.card {
+    background: var(--bg-topo); /* Mesma cor do menu para harmonia */
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-left: 6px solid var(--verde);
+    box-shadow: var(--sombra);
+    border-top: 1px solid var(--borda);
+    border-right: 1px solid var(--borda);
     border-bottom: 1px solid var(--borda);
-    text-align: left;
-    word-wrap: break-word; /* Quebra nomes longos */
-    font-size: 0.9rem;
 }
 
-/* Larguras das colunas */
-.tabela-dados th:nth-child(1) { width: 25%; } /* Horário */
-.tabela-dados th:nth-child(2) { width: 50%; } /* Participantes */
-.tabela-dados th:nth-child(3) { width: 25%; } /* Local */
-
-/* --- MOBILE (CELULAR) --- */
-@media (max-width: 600px) {
-    .tabela-dados th, .tabela-dados td {
-        font-size: 0.75rem;
-        padding: 8px 4px;
-    }
-    .menu-principal, .submenu { gap: 10px; }
+.titulo-grupo-interno {
+    color: var(--verde);
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
 }
 
-.dark-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    background: var(--verde-primario);
-    color: #000;
+.label-membros {
+    background: rgba(77, 253, 83, 0.1);
+    color: var(--verde);
+    padding: 5px 12px;
+    border-radius: 6px;
     font-weight: bold;
-    border: none;
-    cursor: pointer;
-    z-index: 2000;
-}
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 15

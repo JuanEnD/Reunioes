@@ -5,38 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupos - Programação</title>
     <link rel="stylesheet" href="grupos.css">
-    <script src="../Grupos/grupos.js" defer></script>
+    <script src="grupos.js" defer></script>
 </head>
 
-<body>
-<button class="dark-toggle" onclick="toggleDarkMode()">🌙 Modo escuro</button>
+<body class="pagina-grupos">
 
 <header class="topbar">
-  <div class="menu-principal">
-    <a href="/">Reuniões</a>
-    <a href="../Campo/campo.html">Campo</a>
-    <a href="../Limpeza/limpeza.html">Limpeza</a>
-  </div>
-
-  <div class="submenu">
-    <a href="javascript:void(0)" onclick="abrirEventos()">🔔 Avisos</a>
-    <a class="ativo" href="grupos.html">Grupos</a>
-    <a href="../Carrinho/carrinho.html">Carrinho</a>
-  </div>
+    <div class="menu-principal">
+        <a href="/">Reuniões</a>
+        <a href="../Campo/campo.html">Campo</a>
+        <a href="../Limpeza/limpeza.html">Limpeza</a>
+        <button id="btn-dark" onclick="toggleDarkMode()" style="background:none; border:none; cursor:pointer; font-size:1.1rem; margin-left:10px;">🌙</button>
+    </div>
+    <div class="submenu">
+        <a href="javascript:void(0)" onclick="abrirEventos()">🔔 Avisos</a>
+        <a class="ativo" href="grupos.html">Grupos</a>
+        <a href="../Carrinho/carrinho.html">Carrinho</a>
+    </div>
 </header>
 
-<div class="container">
-    <div class="card" id="quadroEventos" style="display: none; border-left: 5px solid var(--verde-primario);">
-        <div class="cabecalho-dia" style="position: relative;">
-            Avisos dos Grupos
-            <span onclick="fecharEventos()" style="position: absolute; right: 15px; cursor: pointer;">✕</span>
-        </div>
-        <div style="padding: 20px;">
-            <p><b>Congresso de 2026:</b> 27 a 29 de Julho.</p>
-        </div>
-    </div>
-
-    <h1 class="titulo-pagina" style="margin: 20px 0;">Grupos de Serviço</h1>
+<div class="reunioes-container"> <h1 class="semana-titulo">Grupos de Serviço</h1>
 
     <!-- Grupo 1 -->
  <div class="card">
@@ -96,8 +84,13 @@
     </div>
 </div>
 
+<div id="modal-info" class="modal" style="display: none;">
+    <div class="modal-conteudo">
+        <h2 id="modal-titulo"></h2>
+        <div id="modal-corpo"></div>
+        <button class="btn-fechar" onclick="fecharModal()">FECHAR</button>
+    </div>
 
-
-</div> 
+<script src="grupos.js"></script>
 </body>
 </html>

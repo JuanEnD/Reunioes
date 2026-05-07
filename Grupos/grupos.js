@@ -1,25 +1,35 @@
+// Abre o Modal de Avisos
 function abrirEventos() {
-    document.getElementById('quadroEventos').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const modal = document.getElementById('modal-info');
+    document.getElementById('modal-titulo').innerText = "🔔 Avisos dos Grupos";
+    document.getElementById('modal-corpo').innerHTML = `
+        <p>• Congresso 2026: 27 a 29 de Julho.</p>
+        <p>• Saída de Campo: Sábado às 09:00h.</p>
+    `;
+    modal.style.display = "flex";
 }
 
-function fecharEventos() {
-    document.getElementById('quadroEventos').style.display = 'none';
+function fecharModal() {
+    document.getElementById('modal-info').style.display = "none";
 }
 
+// Modo Escuro
 function toggleDarkMode() {
-    const isLight = document.body.classList.toggle('light-mode');
-    localStorage.setItem('lightMode', isLight);
-    atualizarBotaoDark(isLight);
-}
-
-function atualizarBotaoDark(isLight) {
-    const btn = document.querySelector('.dark-toggle');
-    if (btn) btn.innerHTML = isLight ? '☀️ Modo claro' : '🌙 Modo escuro';
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    localStorage.setItem('tema', isLight ? 'claro' : 'escuro');
+    document.getElementById('btn-dark').innerText = isLight ? '☀️' : '🌙';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const isLight = localStorage.getItem('lightMode') === 'true';
-    if (isLight) document.body.classList.add('light-mode');
-    atualizarBotaoDark(isLight);
+    if (localStorage.getItem('tema') === 'claro') {
+        document.body.classList.add('light-mode');
+        document.getElementById('btn-dark').innerText = '☀️';
+    }
 });
+
+// Fecha ao clicar fora do modal
+window.onclick = function(event) {
+    const modal = document.getElementById('modal-info');
+    if (event.target == modal) fecharModal();
+}
