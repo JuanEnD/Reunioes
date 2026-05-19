@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Territórios da Congregação</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -24,7 +23,7 @@
 
 <div class="seletores-grupo">
     <button class="btn-grupo ativo" onclick="mostrarGrupo('parque-dois-irmaos', this)">Parque Dois Irmãos</button>
-    <button class="btn-grupo" onclick="mostrarGrupo('passare', this)">Passaré</button>
+    <button class="btn-grupo" onclick="smallerGrupo('passare', this)">Passaré</button>
     <button class="btn-grupo" onclick="mostrarGrupo('paroaras', this)">Paroaras</button>
     <button class="btn-grupo" onclick="mostrarGrupo('marrocos', this)">Marrocos</button>
     <button class="btn-grupo" onclick="mostrarGrupo('jardim-uniao', this)">Jardim União</button>
@@ -44,6 +43,6 @@
     </div>
 </div>
 
-<script src="../script.js"></script>
+<script type="module" src="../script.js"></script>
 </body>
 </html>

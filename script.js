@@ -1,28 +1,64 @@
-// 1. CONFIGURAÇÃO Banco
-const _supabase = supabase.createClient(
-    'https://mxuvkexxvqnqhmdhbhnj.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14dXZrZXh4dnFucWhtZGhiaG5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMDU2ODYsImV4cCI6MjA5Mjg4MTY4Nn0.Jxwd1jsG3VIuSShtXnxOS25g5de92oY30EnB0louzzY'
-);
+// =========================================================================
+// 1. CONFIGURAÇÃO DO BANCO DE DADOS (GOOGLE SHEETS)
+// =========================================================================
+// Substitua o link abaixo pelo link gerado na opção: 
+// Arquivo > Compartilhar > Publicar na Web > Mudar para "Valores separados por vírgulas (.csv)"
+const LINK_GOOGLE_PLANILHA = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS33z4kYkW8f_Fa3Ceb4q3K7bGCq-AeHFv2wBLSd6lIIAXeX3-MPyTzC-DMLABasg7wesdsziS8Zkwq/pub?gid=788586523&single=true&output=csv";
 
 let territoriosGlobal = [];
 
-// 2. CARREGAR DADOS
+// =========================================================================
+// 2. CARREGAR DADOS DA PLANILHA EM TEMPO REAL
+// =========================================================================
 async function carregarDados() {
-    const { data, error } = await _supabase
-        .from('territorios')
-        .select('*')
-        .order('numero', { ascending: true });
+    try {
+        const response = await fetch(LINK_GOOGLE_PLANILHA);
+        if (!response.ok) throw new Error("Não foi possível conectar à planilha pública do Google.");
+        
+        const csvTexto = await response.text();
+        
+        // Divide o texto por quebras de linha para pegar cada registro
+        const linhas = csvTexto.split('\n');
+        const dadosConvertidos = [];
 
-    if (error) {
-        console.error('Erro ao buscar dados:', error);
-    } else {
-        territoriosGlobal = data;
+        // Ignora a linha 0 (cabeçalho) e percorre as linhas de dados reais
+        for (let i = 1; i < linhas.length; i++) {
+            const linha = linhas[i].trim();
+            if (!linha) continue; // Pula linhas em branco por segurança
+
+            // Esta expressão regular separa por vírgulas, mas ignora vírgulas dentro de aspas
+            const colunas = linha.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || linha.split(',');
+
+            // Remove aspas extras que o Google Sheets coloca automaticamente no texto
+            const limparTexto = (texto) => texto ? texto.replace(/^"|"$/g, '').trim() : '';
+
+            // Mapeia o objeto de forma idêntica à estrutura que vinha do Supabase
+            dadosConvertidos.push({
+                id: limparTexto(colunas[0]),
+                numero: limparTexto(colunas[1]),
+                localidade: limparTexto(colunas[2]),
+                grupo: limparTexto(colunas[3]),
+                status: limparTexto(colunas[4]),
+                foto_url: limparTexto(colunas[5])
+            });
+        }
+
+        // Ordena numericamente pelo número do setor do mapa de forma crescente
+        territoriosGlobal = dadosConvertidos.sort((a, b) => parseInt(a.numero || 0) - parseInt(b.numero || 0));
+        
+        // Dispara a montagem visual dos cards na tela
         renderizarMapas();
+
+    } catch (error) {
+        console.error('Erro ao buscar ou processar dados do Google Planilhas:', error);
     }
 }
 
-// 3. RENDERIZAR MAPAS (Sem Status e Sem Botão de Status)
+// =========================================================================
+// 3. RENDERIZAR MAPAS NA INTERFACE
+// =========================================================================
 function renderizarMapas() {
+    // Lista exata de ids de grupos que você possui no HTML
     const grupos = ['parque-dois-irmaos', 'passare', 'marrocos', 'paroaras', 'jardim-uniao'];
     
     grupos.forEach(grupo => {
@@ -31,11 +67,14 @@ function renderizarMapas() {
         if (grupo === 'jardim-uniao') containerId = 'mapas-jardim-uniao';
 
         const container = document.getElementById(containerId);
-        if (!container) return;
+        if (!container) return; // Passa adiante se o container não existir na tela
 
         container.innerHTML = '';
-        const mapasDoGrupo = territoriosGlobal.filter(t => t.grupo.toLowerCase() === grupo);
+        
+        // Filtra os territórios correspondentes a este grupo específico
+        const mapasDoGrupo = territoriosGlobal.filter(t => t.grupo && t.grupo.toLowerCase().trim() === grupo);
 
+        // Gera a estrutura HTML de cada card
         container.innerHTML = mapasDoGrupo.map(mapa => `
             <div class="card-mapa">
                 <div class="badge-numero">${mapa.numero}</div>
@@ -60,70 +99,59 @@ function renderizarMapas() {
     });
 }
 
-// 4. FUNÇÕES DE SUPORTE
-// --- FUNÇÃO DARK MODE (Universal) ---
-function toggleDarkMode() {
+// =========================================================================
+// 4. FUNÇÕES DE SUPORTE EXTERNAS (INTEGRADAS COM AS AÇÕES DO HTML)
+// =========================================================================
+
+// Função para Alternar o Tema Escuro / Claro
+window.toggleDarkMode = function() {
     document.body.classList.toggle('light-mode');
     const btn = document.getElementById('btn-dark');
-    
-    // Salva a preferência do usuário
     const isLight = document.body.classList.contains('light-mode');
-    localStorage.setItem('tema', isLight ? 'claro' : 'escuro');
     
-    if (btn) {
-        btn.innerText = isLight ? '☀️' : '🌙';
-    }
-}
+    localStorage.setItem('tema', isLight ? 'claro' : 'escuro');
+    if (btn) btn.innerText = isLight ? '☀️' : '🌙';
+};
 
-// Verifica o tema ao carregar a página
-window.addEventListener('DOMContentLoaded', () => {
+// Função para alternar visualmente as seções dos Grupos
+window.mostrarGrupo = function(id, btn) {
+    document.querySelectorAll('.secao-grupo').forEach(s => s.classList.remove('ativa'));
+    const secaoAlvo = document.getElementById(id);
+    if (secaoAlvo) secaoAlvo.classList.add('ativa');
+    
+    document.querySelectorAll('.btn-grupo').forEach(b => b.classList.remove('ativo'));
+    if (btn) btn.classList.add('ativo');
+};
+
+// Função de Busca Dinâmica por Texto (Ex: digitando o número do setor)
+window.filtrarMapas = function() {
+    const termo = document.getElementById('inputBusca').value.toLowerCase().trim();
+    document.querySelectorAll('.card-mapa').forEach(c => {
+        c.style.display = c.innerText.toLowerCase().includes(termo) ? "block" : "none";
+    });
+};
+
+// Função para abrir o Pop-Up com a Imagem Ampliada
+window.abrirPopUp = function(url) {
+    document.getElementById('modal-titulo').innerText = "Mapa Ampliado";
+    document.getElementById('modal-corpo').innerHTML = `<img src="${url}" style="width:100%; border-radius:8px; display:block; max-height:70vh; object-fit:contain;">`;
+    document.getElementById('modal-info').style.display = "block";
+};
+
+// Função para Fechar o Modal
+window.fecharModal = function() { 
+    document.getElementById('modal-info').style.display = "none"; 
+};
+
+// Inicializador de preferências de tema e carregamento automático
+document.addEventListener('DOMContentLoaded', () => {
     const temaSalvo = localStorage.getItem('tema');
     if (temaSalvo === 'claro') {
         document.body.classList.add('light-mode');
         const btn = document.getElementById('btn-dark');
         if (btn) btn.innerText = '☀️';
     }
+    
+    // Executa a busca dos dados na planilha do Google Sheets
+    carregarDados();
 });
-
-function trocarSemana(numero) {
-    // Esconde todas as semanas
-    document.querySelectorAll('.semana-bloco').forEach(s => {
-        s.style.display = 'none';
-        s.classList.remove('ativa');
-    });
-
-    // Mostra a semana selecionada
-    const semanaAlvo = document.getElementById(`semana${numero}`);
-    if (semanaAlvo) {
-        semanaAlvo.style.display = 'block';
-        semanaAlvo.classList.add('ativa');
-    }
-
-    // Atualiza os botões
-    document.querySelectorAll('.btn-semana').forEach(b => b.classList.remove('ativo'));
-    event.currentTarget.classList.add('ativo');
-}
-
-function abrirPopUp(url) {
-    document.getElementById('modal-titulo').innerText = "Mapa Ampliado";
-    document.getElementById('modal-corpo').innerHTML = `<img src="${url}" style="width:100%; border-radius:8px;">`;
-    document.getElementById('modal-info').style.display = "block";
-}
-
-function fecharModal() { document.getElementById('modal-info').style.display = "none"; }
-
-function mostrarGrupo(id, btn) {
-    document.querySelectorAll('.secao-grupo').forEach(s => s.classList.remove('ativa'));
-    document.getElementById(id).classList.add('ativa');
-    document.querySelectorAll('.btn-grupo').forEach(b => b.classList.remove('ativo'));
-    btn.classList.add('ativo');
-}
-
-function filtrarMapas() {
-    const termo = document.getElementById('inputBusca').value.toLowerCase();
-    document.querySelectorAll('.card-mapa').forEach(c => {
-        c.style.display = c.innerText.toLowerCase().includes(termo) ? "block" : "none";
-    });
-}
-
-window.onload = carregarDados;
