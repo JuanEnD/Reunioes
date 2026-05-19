@@ -1,4 +1,4 @@
-// 1. CONFIGURAÇÃO
+// 1. CONFIGURAÇÃO Banco
 const _supabase = supabase.createClient(
     'https://mxuvkexxvqnqhmdhbhnj.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14dXZrZXh4dnFucWhtZGhiaG5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMDU2ODYsImV4cCI6MjA5Mjg4MTY4Nn0.Jxwd1jsG3VIuSShtXnxOS25g5de92oY30EnB0louzzY'
