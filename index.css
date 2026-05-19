@@ -28,15 +28,15 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* --- TOPBAR --- */
+/* --- TOPBAR CORRIGIDA PARA MODO CLARO --- */
 .topbar {
-    background: #000000;
+    background: var(--card-bg); /* Mudado de #000000 fixo para respeitar o tema */
     padding: 15px 10px;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--bg); /* Mudado para usar variável dinâmica */
 }
 
 body.light-mode .topbar {
@@ -64,7 +64,7 @@ body.light-mode .topbar {
 }
 
 body.light-mode .topbar a.ativo {
-    color: #000000;
+    color: var(--text-principal);
 }
 
 .submenu {
@@ -72,6 +72,19 @@ body.light-mode .topbar a.ativo {
     justify-content: center;
     gap: 15px;
     font-size: 0.85rem;
+}
+
+.submenu a {
+    color: var(--text-secundario);
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.submenu a.ativo {
+    color: var(--primary);
+    border: 1px solid var(--primary);
 }
 
 /* --- SELETOR DE SEMANAS --- */
@@ -104,9 +117,20 @@ body.light-mode .topbar a.ativo {
     color: #fff;
 }
 
-/* --- CARTÕES DE REUNIÃO --- */
-.reunioes-container {
+/* --- CARTÕES DE REUNIÃO E GRUPOS --- */
+.container, .reunioes-container {
+    max-width: 600px;
+    margin: 0 auto;
     padding: 0 15px 30px 15px;
+}
+
+.semana-titulo {
+    text-align: center;
+    color: var(--primary);
+    margin: 25px 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.4rem;
 }
 
 .data-destaque {
@@ -117,36 +141,57 @@ body.light-mode .topbar a.ativo {
     padding-bottom: 5px;
 }
 
-.item-reuniao {
+.card, .item-reuniao {
     background: var(--card-bg);
-    margin-bottom: 12px;
-    padding: 15px;
+    margin-bottom: 16px;
+    padding: 20px;
     border-radius: 10px;
     border-left: 5px solid var(--primary);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: left;
 }
 
-body.light-mode .item-reuniao {
+body.light-mode .card, body.light-mode .item-reuniao {
     border: 1px solid #e0e0e0;
     border-left: 5px solid var(--primary);
 }
 
-.item-reuniao .titulo {
+.titulo-grupo-interno, .item-reuniao .titulo {
     font-weight: bold;
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
     text-transform: uppercase;
+    color: var(--primary);
+    margin-top: 0;
 }
 
-.item-reuniao .detalhes {
+.info-responsavel, .item-reuniao .detalhes {
     font-size: 0.95rem;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     color: var(--text-secundario);
 }
 
-.item-reuniao b {
+.item-reuniao b, .info-responsavel b {
     color: var(--text-principal);
     font-weight: 600;
+}
+
+.label-membros {
+    background: rgba(76, 175, 80, 0.15);
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: inline-block;
+    margin: 12px 0 6px 0;
+}
+
+.lista-membros {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secundario);
+    margin: 0;
 }
 
 .pessoa {
@@ -154,7 +199,7 @@ body.light-mode .item-reuniao {
     font-weight: bold;
 }
 
-/* --- ESTILO DO MODAL --- */
+/* --- ESTILO DO MODAL CENTRALIZADO --- */
 .modal {
     display: none; 
     position: fixed;
@@ -165,15 +210,18 @@ body.light-mode .item-reuniao {
     height: 100%;
     background-color: rgba(0,0,0,0.85);
     backdrop-filter: blur(5px);
+    justify-content: center; /* Centralização horizontal para o JS flex */
+    align-items: center;     /* Centralização vertical para o JS flex */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.modal-content {
+.modal-conteudo, .modal-content {
     background-color: var(--card-bg);
-    margin: 10% auto;
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
-    width: 85%;
-    max-width: 450px;
+    width: 100%;
+    max-width: 420px;
     position: relative;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     animation: zoomIn 0.3s ease;
@@ -181,13 +229,15 @@ body.light-mode .item-reuniao {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 #modal-titulo {
     margin-top: 0 !important;
     padding-top: 0 !important;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: var(--primary);
+    text-align: center;
 }
 
 #modal-corpo {
@@ -198,19 +248,6 @@ body.light-mode .item-reuniao {
     color: var(--text-principal);
 }
 
-.btn-fechar {
-    width: 100%;
-    margin-top: 15px;
-    padding: 12px;
-    background: var(--primary);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
 @keyframes zoomIn {
     from { transform: scale(0.9); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
@@ -219,36 +256,63 @@ body.light-mode .item-reuniao {
 /* --- RESPONSIVIDADE MOBILE --- */
 @media (max-width: 600px) {
     .menu-principal {
-        gap: 10px;
+        gap: 12px;
         flex-wrap: wrap;
     }
 
     .submenu {
-        gap: 8px;
+        gap: 6px;
         font-size: 0.8rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 5px 0;
     }
 
-    .titulo-pagina {
-        font-size: 1.1rem !important;
+    .titulo-pagina, .semana-titulo {
+        font-size: 1.2rem !important;
     }
 
-    .reunioes-container {
+    .container, .reunioes-container {
         padding: 10px;
     }
 
-    .item-reuniao {
-        padding: 12px;
+    .card, .item-reuniao {
+        padding: 15px;
         border-left-width: 4px;
     }
 
-    .modal-content {
-        width: 90%;
-        margin: 15% auto;
-        padding: 15px;
+    .modal-conteudo, .modal-content {
+        width: 100%;
+        padding: 20px;
     }
 
     .btn-fechar {
-        padding: 15px;
+        padding: 14px;
         font-size: 1rem;
     }
+}
+
+/* Contêiner que permite o arrastar/scroll horizontal dos botões */
+.botoes-semana-wrapper {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;          /* Ativa o scroll horizontal quando faltar espaço */
+    white-space: nowrap;       /* Garante que os botões fiquem todos na mesma linha */
+    padding: 10px 20px;
+    scroll-behavior: smooth;   /* Suaviza o movimento ao rolar */
+    
+    /* Melhora a experiência de arrastar no celular */
+    -webkit-overflow-scrolling: touch; 
+    scroll-snap-type: x mandatory;
+}
+
+/* Opcional: Oculta a barra de rolagem visual padrão para deixar o visual mais limpo */
+.botoes-semana-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Garante que cada botão mantenha seu tamanho ideal e não encolha */
+.btn-semana {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
 }

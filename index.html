@@ -27,248 +27,490 @@
 <div class="reunioes-container">
     <h1 class="titulo-pagina" style="text-align: center; font-size: 1.2rem; margin: 20px 0;">Programação de Reuniões</h1>
 
-    <div class="seletor-semana" style="display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; margin-bottom: 20px;">
-        <button class="btn-semana ativo" onclick="trocarSemana(1, this)">Semana 1</button>
-        <button class="btn-semana" onclick="trocarSemana(2, this)">Semana 2</button>
-        <button class="btn-semana" onclick="trocarSemana(3, this)">Semana 3</button>
-        <button class="btn-semana" onclick="trocarSemana(4, this)">Semana 4</button>
-        <button class="btn-semana" onclick="trocarSemana(5, this)">Semana 5</button>
-    </div>
+    <div class="botoes-semana-wrapper">
+    <button class="btn-semana ativo" onclick="trocarSemana(1, this)">18-24 de Maio</button>
+    <button class="btn-semana" onclick="trocarSemana(2, this)">25-31 de Maio</button>
+    <button class="btn-semana" onclick="trocarSemana(3, this)">01-07 de Junho</button>
+    <button class="btn-semana" onclick="trocarSemana(4, this)">08-14 de Junho</button>
+    <button class="btn-semana" onclick="trocarSemana(5, this)">15-21 de Junho</button>
+    <button class="btn-semana" onclick="trocarSemana(6, this)">22-28 de Junho</button>
+    <button class="btn-semana" onclick="trocarSemana(7, this)">29 de maio a 05 de Julho</button>
+</div>
 
   <div class="semana-bloco ativa" id="semana1">
-    <h2 class="data-destaque">Semana 1</h2>
+    <h2 class="data-destaque"> 18-24 de Maio</h2>
   <div class="item-reuniao" style="border-left-color: #1a237e;">
-        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO </div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">Edson Sales</span></div>
+        <div class="detalhes"><b>Cântico: </b> 44</div>
+        <div class="detalhes"><b>Oração: </b> Edson</div>
+        <div class="detalhes"><b>Som/PC:</b> Levi Lima / Guilherme</div>
+        <div class="detalhes"><b>Indicadores:</b> A - Edgar  / P- Cilas</div>
+        <div class="detalhes"><b>Volantes:</b> Flaviano / Daniel</div>
+        <div class="detalhes"><b>Palco:</b> Luan</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #1a237e;">
         <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
-        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Discurso: O oleiro amoroso e cheio de compaixão     
+(10 min) </b> Waldejares</div>
+        <div class="detalhes"><b>Joias Espirituais: (10 min) </b> Marcus</div>
+        <div class="detalhes"><b>Leitura: (4 min)</b> Reginaldo</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #fbc02d;">
         <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
-        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+        <div class="detalhes"><b>Iniciando conversas (3min) </b> Fatima e Paula</div>
+        <div class="detalhes"><b>Cultivando o interesse (4 min) </b> Clara e Regina 
+Silveira</div>
+        <div class="detalhes"><b>Fazendo Discipulos  (5 min) </b> Giovana e Sara</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #c62828;">
         <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
-        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Cântico: </b> 115</div>
+        <div class="detalhes"><b>Prepare - se para um desastre – Espere o 
+inesperado  (15 min) </b> Tyay Sena</div>
+        <div class="detalhes"><b></b>Estudo bíblico de congregação: (30 min) </b> Darlan</div>
+        <div class="detalhes"><b>Cântico:151 / Oração Final:</b> Alberto</div>
+        <div class="detalhes"><b>Limpeza:</b> Grupo Jardim União</div>
     </div>
-
+    <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">Limpeza Semanal: Castelão</div>
+    </div>
   <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
         <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
-        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Teixeira 
+Bento</span></div>
+        <div class="detalhes"><b>Cântico: </b> X</div>
+        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">Celio Maia</span></div>
+        <div class="detalhes"><b>Congregação:</b> <span style="color: #fff;">Monte Castelo</span></div>
+        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;"> Não caia nas armadilhas de Satanás </span></div>
+        <div class="detalhes"><b>Palco:</b> Alberto</div>
+        <div class="detalhes"><b>Som/PC:</b> Levi C. / Daniel</div>
+        <div class="detalhes"><b>Indicadores:</b> A - Flaviano / P - Rafael</div>
+        <div class="detalhes"><b>Volantes:</b> Rogério / Levi Lima</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #38761d;">
         <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
-        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
+        <div class="detalhes"><b>Cântico: </b> 35</div>
+        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa"> Marcelo Cavalcante</span></div>
+        <div class="detalhes"><b>Tema:</b> Tome cuidado com as distrações”</div>
+        <div class="detalhes"><b>Leitor:</b> Luan</div>
+        <div class="detalhes"><b>Sub:</b> Fabiano C.</div>
+        <div class="detalhes"><b>Cântico: </b> 129</div>
+        <div class="detalhes"><b>Limpeza:</b> Grupo Paroaras | <b>Lanche:</b> Grupo Passaré</div>
     </div>
 </div>
 
 <div class="semana-bloco" id="semana2" style="display:none;">
-    <h2 class="data-destaque">Semana 2</h2>
+    <h2 class="data-destaque">28-31 de Maio</h2>
     
     <div class="item-reuniao" style="border-left-color: #1a237e;">
-        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO </div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Khallew</span></div>
+        <div class="detalhes"><b>Cântico: </b> 24</div>
+        <div class="detalhes"><b>Oração: </b> Khallew</div>
+        <div class="detalhes"><b>Som/PC:</b> Flaviano / Marcus</div>
+        <div class="detalhes"><b>Indicadores:</b> A - Alberto  / P- Fabiano C.</div>
+        <div class="detalhes"><b>Volantes:</b> Cilas / Luan</div>
+        <div class="detalhes"><b>Palco:</b> Daniel</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #1a237e;">
         <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
-        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+        <div class="detalhes"><b>Discurso: Nós amamos nosso paraíso espiritual     
+(10 min) </b> Edson Sales</div>
+        <div class="detalhes"><b>Joias espirituais: (10 min) </b>  Edgar Mariano</div>
+        <div class="detalhes"><b>Leitura da Bíblia: (4 min)</b> Rafael</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #fbc02d;">
         <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
-        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+        <div class="detalhes"><b>Iniciando conversas (3 min)</b> Elaina e Emily </div>
+        <div class="detalhes"><b>Iniciando conversas (2 min)</b> Luan e Daniel</div>
+        <div class="detalhes"><b>Iniciando conversas  (3 min)</b> Hermina e Juci</div>
+        <div class="detalhes"><b>Explicando suas crenças 
+(3min)</b> Wanessa e Maria José</div>
+        
     </div>
 
     <div class="item-reuniao" style="border-left-color: #c62828;">
-        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
-        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
+         <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+        <div class="detalhes"><b>Cântico: </b> 80</div>
+        <div class="detalhes"><b>Necessidades Locais (15 min) </b> Waldejares</div>
+        <div class="detalhes"><b>Primeiro discurso da visita 
+(30 min)</b></b> Superintendente 
+de circuito</div>
+        <div class="detalhes"><b>Cântico: 55 / Oração Final:</b> Waldejares</div>
+        <div class="detalhes"><b>Limpeza:</b> Grupo  Passaré</div>
     </div>
-
+      <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">Limpeza Semanal: Castelão</div>
+    </div>
   <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
-        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
-        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+             <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">  Allan 
+Medeiros</span></div>
+        <div class="detalhes"><b>Cântico: </b> X</div>
+        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;"> Daniel Rodrigues de Souza</span></div>
+        <div class="detalhes"><b>Congregação:</b> <span style="color: #fff;"> Superintendente de Circuito</span></div>
+        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;"> Você colherá vida eterna?</span></div>
+        <div class="detalhes"><b>Som/PC:</b> Edgar / Luan</div>
+        <div class="detalhes"><b>Indicadores:</b> A - Jou Wesley / P - Aljan</div>
+        <div class="detalhes"><b>Volantes:</b> Marcus / Guilherme</div>
+        <div class="detalhes"><b>Palco:</b> Cilas</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #38761d;">
-        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
-        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
+       <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+        <div class="detalhes"><b>Cântico: </b> 135</div>
+        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa"> Marcelo Cavalcante</span></div>
+        <div class="detalhes"><b>Tema:</b> Mostre perspicácia e você “será bem – sucedido” 
+</div>
+        <div class="detalhes"><b>Leitor:</b> </div>
+        <div class="detalhes"><b>Sub:</b> </div>
+        <div class="detalhes"><b>Ultimo discurso da visita: </b> <span style="color: #fff;"> Daniel Rodrigues de Souza</span></div>
+        <div class="detalhes"><b>Cântico: </b> 42</div>
+        <div class="detalhes"><b>Limpeza:</b> Grupo  Marrocos | <b>Lanche:</b> </div>
     </div>
 </div>
     
 
-    <div class="semana-bloco" id="semana3" style="display:none;">
-    <h2 class="data-destaque">Semana 3</h2>
+<div class="semana-bloco" id="semana3" style="display:none;">
+
+    <h2 class="data-destaque">04 - 07 de Junho</h2>
     
     <div class="item-reuniao" style="border-left-color: #1a237e;">
-        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+      <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO </div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Teixeira – 
+B:Waldejares </span></div>
+        <div class="detalhes"><b>Cântico: </b> 84</div>
+        <div class="detalhes"><b>Oração: </b> Teixeira</div>
+        <div class="detalhes"><b>Som/PC:</b> Levi L./ Daniel </div>
+        <div class="detalhes"><b>Indicadores:</b> A - Rogério  / P- Nazareno </div>
+        <div class="detalhes"><b>Volantes:</b> Juan / Rafael </div>
+        <div class="detalhes"><b>Palco:</b>  Fabiano C</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #1a237e;">
-        <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
-        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+      <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso: “Não tenha medo... Pois ‘eu estou com 
+você’” (10 min)</b> Marcus</div>
+        <div class="detalhes"><b>Joias espirituais: (10 min) </b> Tyay</div>
+        <div class="detalhes"><b>Leitura da Bíblia: (4 min)</b> Levi Cavalcante – 
+B: Pietro</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #fbc02d;">
         <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
-        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+                <div class="detalhes"><b>Iniciando conversas (3 min)</b> Jessica e Lucia – B: 
+Alberto e Reginaldo</div>
+                <div class="detalhes"><b>Cultivando o interesse (4 min)</b> Beatriz Cordeiro e Sonia – 
+B: Levi lima e Guilherme</div>
+                <div class="detalhes"><b>Fazendo Discipulos (5 min)</b> Regina Lima e Raquel – 
+B: Meire e Fatima</div>  
     </div>
-
-    <div class="item-reuniao" style="border-left-color: #c62828;">
-        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
-        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
-    </div>
-
-      <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
-        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
-        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
-    </div>
-
-    <div class="item-reuniao" style="border-left-color: #38761d;">
-        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
-        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
-    </div>
-</div>
+        <div class="item-reuniao" style="border-left-color: #c62828;">
+            <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+            <div class="detalhes"><b>Cântico: </b> 76</div>
+            <div class="detalhes"><b>Seja corajoso como Jeremias (6 min)</b> Khallew</div>
+            <div class="detalhes"><b>‘Faça uma defesa... com brandura e 
+profundo respeito’ (9 min)</b> Marcelo</div>
+            <div class="detalhes"><b></b>Estudo bíblico de congregação: (30 min)</b> Ivoney</div>
+            <div class="detalhes"><b>Cântico: 18 / Oração Final:</b> Jou Wesley</div>
+            <div class="detalhes"><b>Limpeza:</b> Grupo Parque Dois Irmãos</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #fbc02d;">
+            <div class="titulo" style="color: #fbc02d;">Limpeza Semanal: Jardim União</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+                <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+                <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Waldejares Oliveira</span></div>
+                <div class="detalhes"><b>Cântico: </b> X</div>
+                <div class="detalhes"><b>Orador:</b> <span style="color: #fff;"> </span>Franc Marquilânio</div>
+                <div class="detalhes"><b>Congregação:</b> <span style="color: #fff;"> </span>Conj Palmeiras</div>
+                <div class="detalhes"><b>Tema:</b> <span style="color: #fff;"> </span> Será que Deus ainda está no controle?</div>
+                <div class="detalhes"><b>Som/PC:</b>  Marcus / Guilherme </div>
+                <div class="detalhes"><b>Indicadores:</b> A - Daniel / P - Juan </div>
+                <div class="detalhes"><b>Volantes:</b>  Levi C. / Alberto </div>
+                <div class="detalhes"><b>Palco:</b> Jou Wesley</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+            <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+            <div class="detalhes"><b>Cântico: </b> 111</div>
+            <div class="detalhes"><b>Dirigente:</b> <span class="pessoa"> Marcelo Cavalcante</span></div>
+            <div class="detalhes"><b>Tema:</b>  Você pode ser feliz mesmo sendo odiado!</div>
+            <div class="detalhes"><b>Leitor:</b> Rogério</div>
+            <div class="detalhes"><b>Sub:</b> Levi L.</div>
+            <div class="detalhes"><b>Cântico: </b> 149</div>
+            <div class="detalhes"><b>Limpeza:</b> Grupo Jardim União   | <b>Lanche:</b> Parque Dois Irmãos</div>
+        </div>
+ </div>
 
    <div class="semana-bloco" id="semana4" style="display:none;">
-    <h2 class="data-destaque">Semana 4</h2>
+    <h2 class="data-destaque">11-14 de Junho</h2>
     
-    <div class="item-reuniao" style="border-left-color: #1a237e;">
-        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+     <div class="item-reuniao" style="border-left-color: #1a237e;">
+      <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO </div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Ivoney</span></div>
+        <div class="detalhes"><b>Cântico: </b> </div>
+        <div class="detalhes"><b>Oração: </b> Ivoney</div>
+        <div class="detalhes"><b>Som/PC:</b> Flaviano / Rafael</div>
+        <div class="detalhes"><b>Indicadores:</b> A -  Juan / P- Ivoney </div>
+        <div class="detalhes"><b>Volantes:</b> Nazareno / Reginaldo </div>
+        <div class="detalhes"><b>Palco:</b> Levi C.</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #1a237e;">
-        <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
-        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+      <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso: O que podemos aprender a doença 
+espiritual de Judá? (10 min) </b> Allan</div>
+        <div class="detalhes"><b>Joias espirituais: (10 min) </b>  Edson Sales</div>
+        <div class="detalhes"><b>Leitura da Bíblia: (4 min)</b> Fabiano Cordeiro</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #fbc02d;">
         <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
-        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+                <div class="detalhes"><b>niciando conversas (2 min)</b> Edgar e Cilas</div>
+                <div class="detalhes"><b>Iniciando conversas (2 min)</b> Vitória e Emanuela</div>
+                <div class="detalhes"><b>Cultivando o interesse  (4 min)</b> Rafaela e Giovana </div>
+                <div class="detalhes"><b>Explicando suas crenças 
+        (3min)</b> Leticia e Clara</div>   
     </div>
-
-    <div class="item-reuniao" style="border-left-color: #c62828;">
-        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
-        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
-    </div>
-
-  <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
-        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
-        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
-    </div>
-
-    <div class="item-reuniao" style="border-left-color: #38761d;">
-        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
-        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
-    </div>
-</div>
+        <div class="item-reuniao" style="border-left-color: #c62828;">
+            <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+            <div class="detalhes"><b>Cântico: </b> 60</div>
+            <div class="detalhes"><b>Proteja seu coração contra informações 
+falsas (8 min) </b>  Allan Medeiros</div>
+            <div class="detalhes"><b>Necessidades Locais (7min) </b> Khallew</div>
+            <div class="detalhes"><b>Estudo bíblico de congregação: (30 min)</b></b> Marcelo</div>
+            <div class="detalhes"><b>Cântico: 68 / Oração Final:</b> Marcus</div>
+            <div class="detalhes"><b>Limpeza:</b> Grupo  Paroaras</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #fbc02d;">
+            <div class="titulo" style="color: #fbc02d;">Limpeza Semanal: Passaré</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+                <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+                <div class="detalhes"><b>Presidente:</b> <span class="pessoa">  Tyay Sena</span></div>
+                <div class="detalhes"><b>Cântico: </b> X</div>
+                <div class="detalhes"><b>Orador:</b> <span style="color: #fff;"></span> Bruno Lima</div>
+                <div class="detalhes"><b>Congregação:</b> <span style="color: #fff;"> </span> Planalto Maraponga</div>
+                <div class="detalhes"><b>Tema:</b> <span style="color: #fff;"> </span> Jeová é o “Grandioso Criador” </div>
+                <div class="detalhes"><b>Som/PC:</b> Daniel / Edgar </div>
+                <div class="detalhes"><b>Indicadores:</b> A - Flaviano / P - Rafael </div>
+                <div class="detalhes"><b>Volantes:</b>  Rogério / Levi L. </div>
+                <div class="detalhes"><b>Palco:</b> Guilherme</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+            <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+            <div class="detalhes"><b>Cântico: </b> 8</div>
+            <div class="detalhes"><b>Dirigente:</b> <span class="pessoa"> Marcelo Cavalcante</span></div>
+            <div class="detalhes"><b>Tema:</b> O “Deus da Verdade” sempre cumpre o que promete</div>
+            <div class="detalhes"><b>Leitor:</b>  Marcus</div>
+            <div class="detalhes"><b>Sub:</b> Juan </div>
+            <div class="detalhes"><b>Cântico: </b> 2</div>
+            <div class="detalhes"><b>Limpeza: </b> Grupo Passaré  | <b>Lanche:</b> Jardim União</div>
+        </div>
+ </div>
 
    <div class="semana-bloco" id="semana5" style="display:none;">
-    <h2 class="data-destaque">Semana 5</h2>
+    <h2 class="data-destaque">18-21 de Junho</h2>
     
-    <div class="item-reuniao" style="border-left-color: #1a237e;">
-        <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO (MEIO)</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+      <div class="item-reuniao" style="border-left-color: #1a237e;">
+      <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO </div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Darlan Brasil</span> </div>
+        <div class="detalhes"><b>Cântico: </b> 152</div>
+        <div class="detalhes"><b>Oração: </b> Darlan</div>
+        <div class="detalhes"><b>Som/PC:</b> Levi Cavalcante / Marcus </div>
+        <div class="detalhes"><b>Indicadores:</b> A - Fabiano / P - Alberto </div>
+        <div class="detalhes"><b>Volantes:</b> Cilas / Luan </div>
+        <div class="detalhes"><b>Palco:</b> Rogério </div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #1a237e;">
-        <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
-        <div class="detalhes"><b>Discurso:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Joias:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Leitura:</b> NOME AQUI</div>
+      <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso: Eles tratavam o templo de Jeová com 
+desprezo (10 min) </b> Teixeira</div>
+        <div class="detalhes"><b>Joias espirituais: (10 min) </b> Waldejares</div>
+        <div class="detalhes"><b>Leitura da Bíblia: (4 min)</b> Juan</div>
     </div>
 
     <div class="item-reuniao" style="border-left-color: #fbc02d;">
         <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
-        <div class="detalhes"><b>Partes:</b> Verifique a apostila da semana</div>
+                <div class="detalhes"><b>Iniciando conversas (3 min)</b>  Luzia e Neuvani</div>
+                <div class="detalhes"><b>Cultivando o interesse (4 min)</b> Mileia e Elaina</div>
+                <div class="detalhes"><b>Fazendo discípulos (5 min)</b>  Elane e Lucileide</div>
+    </div>
+        <div class="item-reuniao" style="border-left-color: #c62828;">
+            <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+            <div class="detalhes"><b>Cântico: </b> 91</div>
+            <div class="detalhes"><b>Como podemos mostrar que valorizamos 
+o nosso Salão do Reino  (5min) </b> Marcelo</div>
+            <div class="detalhes"><b>Como seus donativos são usados – 
+Manutenção de Salões do Reino (10min) </b> Ivoney</div>
+            <div class="detalhes"><b></b>Estudo bíblico de congregação: (30 min) </b> Tyay</div>
+            <div class="detalhes"><b>Cântico: 71 / Oração Final:</b> Levi C.</div>
+            <div class="detalhes"><b>Limpeza:</b> Grupo Marrocos</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #fbc02d;">
+            <div class="titulo" style="color: #fbc02d;">Limpeza Semanal: Parque Dois Irmãos</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+                <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+                <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> </span> Edson Sales</div>
+                <div class="detalhes"><b>Cântico: </b> X</div>
+                <div class="detalhes"><b>Orador:</b> <span style="color: #fff;"> </span> Ivoney Domingos</div>
+                <div class="detalhes"><b>Congregação:</b> <span style="color: #fff;"> </span> Jardim União</div>
+                <div class="detalhes"><b>Tema:</b> <span style="color: #fff;"> </span> Os olhos de Jeová estão em todo lugar</div>
+                <div class="detalhes"><b>Som/PC:</b> Levi L / Luan </div>
+                <div class="detalhes"><b>Indicadores:</b> A - Nazareno / P - Rogério </div>
+                <div class="detalhes"><b>Volantes:</b>  Jou Wesley / Marcus</div>
+                <div class="detalhes"><b>Palco:</b> Fabiano C.</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+            <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+            <div class="detalhes"><b>Cântico: </b> 122</div>
+            <div class="detalhes"><b>Dirigente:</b> <span class="pessoa"> Marcelo Cavalcante</span></div>
+            <div class="detalhes"><b>Tema:</b>  Tenha o ponto de vista de Jeová sobre as 
+dificuldades</div>
+            <div class="detalhes"><b>Leitor:</b> Juan</div>
+            <div class="detalhes"><b>Sub:</b> Guilherme</div>
+            <div class="detalhes"><b>Cântico: </b> 150</div>
+            <div class="detalhes"><b>Limpeza: </b> Grupo Parque Dois Irmãos  | <b>Lanche:</b> Grupo Marrocos</div>
+        </div>
+ </div>
+
+    <div class="semana-bloco" id="semana6" style="display:none;">
+    <h2 class="data-destaque">25-28 de Junho</h2>
+    
+      <div class="item-reuniao" style="border-left-color: #1a237e;">
+      <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO </div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Waldejares</span> </div>
+        <div class="detalhes"><b>Cântico: </b> 5</div>
+        <div class="detalhes"><b>Oração: </b> Waldejares</div>
+        <div class="detalhes"><b>Som/PC:</b> Guilherme / Rafael</div>
+        <div class="detalhes"><b>Indicadores:</b> A - Aljan  / P- Jou Wesley </div>
+        <div class="detalhes"><b>Volantes:</b> Levi Lima / Reginaldo </div>
+        <div class="detalhes"><b>Palco:</b> Nazareno </div>
     </div>
 
-    <div class="item-reuniao" style="border-left-color: #c62828;">
-        <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
-        <div class="detalhes"><b>Estudo Bíblico:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Oração Final:</b> NOME AQUI</div>
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+      <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso: Do que você vai se orgulhar? (10 min)  </b> Edgar</div>
+        <div class="detalhes"><b>Joias espirituais: (10 min) </b>  Ivoney</div>
+        <div class="detalhes"><b>Leitura da Bíblia: (4 min)</b> Luan</div>
     </div>
 
-    <div class="item-reuniao" style="border-left-color: #38761d; margin-top: 30px;">
-        <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
-        <div class="detalhes"><b>Presidente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Orador:</b> <span style="color: #fff;">NOME</span></div>
-        <div class="detalhes"><b>Tema:</b> <span style="color: #fff;">TEMA DO DISCURSO</span></div>
-        <div class="detalhes"><b>Som/Vídeo:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Indicadores:</b> NOME / NOME</div>
-        <div class="detalhes"><b>Volantes:</b> NOME / NOME</div>
+    <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
+                <div class="detalhes"><b>Iniciando conversas (4 min)</b> Estrela e Vitória</div>
+                <div class="detalhes"><b>Iniciando conversas (4 min)</b> Marcus e Nazareno</div>
+                <div class="detalhes"><b>Fazendo discípulos (4 min)</b> Erica e Maria josé</div>  
+    </div>
+        <div class="item-reuniao" style="border-left-color: #c62828;">
+            <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+            <div class="detalhes"><b>Cântico: </b> 48</div>
+            <div class="detalhes"><b>Não seja enganado e consentre – se no 
+Reino  (15min) </b> Khallew</div>
+            <div class="detalhes"><b></b>Estudo bíblico de congregação: (30 min)</b> Allan</div>
+            <div class="detalhes"><b>Cântico: 58 / Oração Final:</b> Cilas</div>
+            <div class="detalhes"><b>Limpeza:</b> Grupo Jardim União</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #fbc02d;">
+            <div class="titulo" style="color: #fbc02d;">Limpeza Semanal: Paroaras</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+                <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+                <div class="detalhes"><b>Presidente:</b> <span class="pessoa">  Darlan</span> </div>
+                <div class="detalhes"><b>Cântico: </b> X</div>
+                <div class="detalhes"><b>Orador:</b> <span style="color: #fff;"> </span> Edilson Barreto</div>
+                <div class="detalhes"><b>Congregação:</b> <span style="color: #fff;"> </span> Jockey Club</div>
+                <div class="detalhes"><b>Tema:</b> <span style="color: #fff;"> </span> Pais, vocês estão construindo com materiais à prova 
+de fogo?</div>
+                <div class="detalhes"><b>Som/PC:</b> Marcus / Edgar</div>
+                <div class="detalhes"><b>Indicadores:</b> A - Daniel / P - Juan </div>
+                <div class="detalhes"><b>Volantes:</b>  Nazareno / Flaviano </div>
+                <div class="detalhes"><b>Palco:</b> Cilas</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+            <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+            <div class="detalhes"><b>Cântico: </b> 90</div>
+            <div class="detalhes"><b>Dirigente:</b> <span class="pessoa"> Marcelo Cavalcante</span></div>
+            <div class="detalhes"><b>Tema: </b>  Aprenda com “o Deus de todo o consolo”</div>
+            <div class="detalhes"><b>Leitor:</b> Guilherme</div>
+            <div class="detalhes"><b>Sub:</b> Rafael</div>
+            <div class="detalhes"><b>Cântico: </b> 130</div>
+            <div class="detalhes"><b>Limpeza:</b> Grupo Paroaras   | <b>Lanche:</b> Passaré</div>
+        </div>
+ </div>
+
+    <div class="semana-bloco" id="semana7" style="display:none;">
+    <h2 class="data-destaque">02-05 de Julho</h2>
+    
+      <div class="item-reuniao" style="border-left-color: #1a237e;">
+      <div class="titulo" style="color: #1a237e;">EQUIPE DE APOIO </div>
+        <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Tyay</span> </div>
+        <div class="detalhes"><b>Cântico: </b> 106</div>
+        <div class="detalhes"><b>Oração: </b> Tyay</div>
+        <div class="detalhes"><b>Som/PC:</b> Levi Cavalcante / Daniel </div>
+        <div class="detalhes"><b>Indicadores:</b> A - Alberto  / P - Flaviano </div>
+        <div class="detalhes"><b>Volantes:</b>  Edgar / Reginaldo </div>
+        <div class="detalhes"><b>Palco:</b> Marcus</div>
     </div>
 
-    <div class="item-reuniao" style="border-left-color: #38761d;">
-        <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
-        <div class="detalhes"><b>Dirigente:</b> <span class="pessoa">NOME AQUI</span></div>
-        <div class="detalhes"><b>Leitor:</b> NOME AQUI</div>
-        <div class="detalhes"><b>Limpeza:</b> GRUPO AQUI | <b>Lanche:</b> GRUPO AQUI</div>
+    <div class="item-reuniao" style="border-left-color: #1a237e;">
+      <div class="titulo" style="color: #1a237e;">TESOUROS DA PALAVRA</div>
+        <div class="detalhes"><b>Discurso: Como “disputar uma corrida contra 
+cavalos” (10 min)  </b> Darlan</div>
+        <div class="detalhes"><b>Joias espirituais: (10 min) </b>  Khallew</div>
+        <div class="detalhes"><b>Leitura da Bíblia: (4 min)</b> Aljan</div>
     </div>
-</div>
+
+    <div class="item-reuniao" style="border-left-color: #fbc02d;">
+        <div class="titulo" style="color: #fbc02d;">FAÇA SEU MELHOR</div>
+                <div class="detalhes"><b>Iniciando conversas (3 min)</b>  Vania e Sueli</div>
+                <div class="detalhes"><b>Cultivando o interesse (4 min)</b> Juci e Gil</div>
+                <div class="detalhes"><b>Discurso (5 min))</b> Rafael</div>   
+    </div>
+        <div class="item-reuniao" style="border-left-color: #c62828;">
+            <div class="titulo" style="color: #c62828;">NOSSA VIDA CRISTÃ</div>
+            <div class="detalhes"><b>Cântico: </b> 109</div>
+            <div class="detalhes"><b>Necessidades Locais (15 min) </b> Marcelo</div>
+            <div class="detalhes"><b></b>Estudo bíblico de congregação: (30 min)</b> Waldejares</div>
+            <div class="detalhes"><b>Cântico: 28 / Oração Final:</b> Fabiano C. </div>
+            <div class="detalhes"><b>Limpeza:</b> Grupo Passaré</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #fbc02d;">
+            <div class="titulo" style="color: #fbc02d;">Limpeza Semanal: Marrocos</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+                <div class="titulo" style="color: #38761d;">REUNIÃO PÚBLICA</div>
+                <div class="detalhes"><b>Presidente:</b> <span class="pessoa"> Ivoney 
+Queiroz</span>  </div>
+                <div class="detalhes"><b>Cântico: </b> X</div>
+                <div class="detalhes"><b>Orador:</b> <span style="color: #fff;"> </span> Leudo Almeida</div>
+                <div class="detalhes"><b>Congregação:</b> <span style="color: #fff;"> </span> Conj Palmeiras</div>
+                <div class="detalhes"><b>Tema:</b> <span style="color: #fff;"> </span>  Porque mostrar amor abnegado? </div>
+                <div class="detalhes"><b>Som/PC:</b> Levi Lima / Rafael </div>
+                <div class="detalhes"><b>Indicadores:</b> A - Edgar / P - Nazareno </div>
+                <div class="detalhes"><b>Volantes:</b>  Jou Wesley / Daniel </div>
+                <div class="detalhes"><b>Palco:</b> Juan</div>
+        </div>
+        <div class="item-reuniao" style="border-left-color: #38761d;">
+            <div class="titulo" style="color: #38761d;">ESTUDO DE A SENTINELA</div>
+            <div class="detalhes"><b>Cântico: </b> 131</div>
+            <div class="detalhes"><b>Dirigente:</b> <span class="pessoa"> Marcelo Cavalcante</span></div>
+            <div class="detalhes"><b>Tema:</b> Marido e esposa, continuem fortalecendo a amizade 
+entre vocês</div>
+            <div class="detalhes"><b>Leitor:</b> Cilas</div>
+            <div class="detalhes"><b>Sub:</b> Guilherme</div>
+            <div class="detalhes"><b>Cântico: </b> 132</div>
+            <div class="detalhes"><b>Limpeza:</b> Grupo Marrocos  | <b>Lanche:</b> Passaré </div>
+        </div>
+ </div>
 
 <div id="modal-info" class="modal" onclick="fecharModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
@@ -278,6 +520,6 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="/Reunioes/script.js"></script>
 </body>
 </html>
