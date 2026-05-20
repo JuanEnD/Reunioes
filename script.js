@@ -10,11 +10,14 @@ const URL_GRAVACAO_GOOGLE = "https://script.google.com/macros/s/AKfycbwfYv7UeOiE
 let territoriosGlobal = [];
 
 // =========================================================================
-// 2. CARREGAR DADOS DA PLANILHA EM TEMPO REAL
+// 2. CARREGAR DADOS DA PLANILHA EM TEMPO REAL (SEM CACHE)
 // =========================================================================
 async function carregarDados() {
     try {
-        const response = await fetch(LINK_GOOGLE_PLANILHA);
+        // Adiciona um quebrador de cache (&_t=) para forçar o Google Sheets a entregar o dado mais recente
+        const urlSemCache = `${LINK_GOOGLE_PLANILHA}&_t=${new Date().getTime()}`;
+        
+        const response = await fetch(urlSemCache);
         if (!response.ok) throw new Error("Não foi possível conectar à planilha.");
         
         const csvTexto = await response.text();
@@ -28,7 +31,6 @@ async function carregarDados() {
             const colunas = linha.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || linha.split(',');
             const limparTexto = (texto) => texto ? texto.replace(/^"|"$/g, '').trim() : '';
 
-            // TRATAMENTO DE SEGURANÇA: Se o texto for nulo, indefinido ou a palavra 'null', limpa o campo
             let textoQuadras = limparTexto(colunas[6]);
             if (!textoQuadras || textoQuadras.toLowerCase() === 'null' || textoQuadras.toLowerCase() === 'undefined') {
                 textoQuadras = '';
@@ -41,7 +43,7 @@ async function carregarDados() {
                 grupo: limparTexto(colunas[3]),
                 status: limparTexto(colunas[4]),
                 foto_url: limparTexto(colunas[5]),
-                quadras: textoQuadras // Campo higienizado
+                quadras: textoQuadras
             });
         }
 
@@ -99,12 +101,12 @@ function renderizarMapas() {
 }
 
 // =========================================================================
-// 4. SALVAR DADOS DE VOLTA NA PLANILHA ONLINE
+// 4. SALVAR DADOS DE VOLTA NA PLANILHA ONLINE (E ATUALIZAR MEMÓRIA LOCAL)
 // =========================================================================
 window.salvarDadosNaPlanilha = async function(idMapa, inputElement) {
     const textoDigitado = inputElement.value;
     
-    // Efeito visual rápido para mostrar que está salvando (borda amarela)
+    // Feedback visual: borda amarela enquanto envia
     inputElement.style.border = "1px solid #f1c40f";
 
     try {
@@ -120,13 +122,19 @@ window.salvarDadosNaPlanilha = async function(idMapa, inputElement) {
             })
         });
 
-        // Efeito visual de sucesso (borda verde)
+        // Atualiza a informação na nossa variável global para persistir sem precisar de F5
+        const territorio = territoriosGlobal.find(t => t.id === idMapa);
+        if (territorio) {
+            territorio.quadras = textoDigitado;
+        }
+
+        // Feedback visual: borda verde de sucesso
         inputElement.style.border = "1px solid #27ae60";
         setTimeout(() => { inputElement.style.border = "1px solid #444"; }, 2000);
 
     } catch (error) {
         console.error("Erro ao salvar dados na planilha:", error);
-        // Efeito visual de erro (borda vermelha)
+        // Feedback visual: borda vermelha de erro
         inputElement.style.border = "1px solid #e74c3c";
     }
 };
