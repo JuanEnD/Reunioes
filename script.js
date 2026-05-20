@@ -6,7 +6,8 @@
 const LINK_GOOGLE_PLANILHA = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS33z4kYkW8f_Fa3Ceb4q3K7bGCq-AeHFv2wBLSd6lIIAXeX3-MPyTzC-DMLABasg7wesdsziS8Zkwq/pub?gid=788586523&single=true&output=csv";
 // Link de GRAVAÇÃO (O URL do App da Web que você acabou de gerar no Passo 2)
 const URL_GRAVACAO_GOOGLE = "https://script.google.com/macros/s/AKfycbwfYv7UeOiEF8Yw45R0YmYx7003dPfy_0xaR8eh_0W21maHKBPleG3NkCdCqpvtj7Hjww/exec";
-
+// ------------------------------------------------------------------------------------------
+// Variável global para armazenar os dados dos territórios
 let territoriosGlobal = [];
 
 // =========================================================================
