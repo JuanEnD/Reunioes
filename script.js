@@ -11,7 +11,7 @@ const URL_GRAVACAO_GOOGLE = "https://script.google.com/macros/s/AKfycbwfYv7UeOiE
 let territoriosGlobal = [];
 
 // =======================================================================
-// 2. CARREGAR DADOS DA PLANILHA EM TEMPO REAL (SEM CACHE)
+// 2. CARREGAR DADOS DA PLANILHA  EM TEMPO REAL (SEM CACHE)
 // =========================================================================
 async function carregarDados() {
     try {
