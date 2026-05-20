@@ -10,7 +10,7 @@ const URL_GRAVACAO_GOOGLE = "https://script.google.com/macros/s/AKfycbwfYv7UeOiE
 // Variável global para armazenar os dados dos territórios carregados da planilha, permitindo acesso fácil em toda a aplicação
 let territoriosGlobal = [];
 
-// ========================================================================
+// =======================================================================
 // 2. CARREGAR DADOS DA PLANILHA EM TEMPO REAL (SEM CACHE)
 // =========================================================================
 async function carregarDados() {
@@ -113,11 +113,11 @@ window.salvarDadosNaPlanilha = async function(idMapa, inputElement) {
     try {
         await fetch(URL_GRAVACAO_GOOGLE, {
             method: "POST",
-            mode: "no-cors", 
+            mode: "no-cors",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: JSON.stringify({
+            body: new URLSearchParams({
                 id: idMapa,
                 quadras: textoDigitado
             })
