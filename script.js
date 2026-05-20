@@ -10,7 +10,7 @@ const URL_GRAVACAO_GOOGLE = "https://script.google.com/macros/s/AKfycbwfYv7UeOiE
 // Variável global para armazenar os dados dos territórios carregados da planilha, permitindo acesso fácil em toda a aplicação
 let territoriosGlobal = [];
 
-// =========================================================================
+// ========================================================================
 // 2. CARREGAR DADOS DA PLANILHA EM TEMPO REAL (SEM CACHE)
 // =========================================================================
 async function carregarDados() {
