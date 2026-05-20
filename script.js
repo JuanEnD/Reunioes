@@ -28,6 +28,12 @@ async function carregarDados() {
             const colunas = linha.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g) || linha.split(',');
             const limparTexto = (texto) => texto ? texto.replace(/^"|"$/g, '').trim() : '';
 
+            // TRATAMENTO DE SEGURANÇA: Se o texto for nulo, indefinido ou a palavra 'null', limpa o campo
+            let textoQuadras = limparTexto(colunas[6]);
+            if (!textoQuadras || textoQuadras.toLowerCase() === 'null' || textoQuadras.toLowerCase() === 'undefined') {
+                textoQuadras = '';
+            }
+
             dadosConvertidos.push({
                 id: limparTexto(colunas[0]),
                 numero: limparTexto(colunas[1]),
@@ -35,7 +41,7 @@ async function carregarDados() {
                 grupo: limparTexto(colunas[3]),
                 status: limparTexto(colunas[4]),
                 foto_url: limparTexto(colunas[5]),
-                quadras: limparTexto(colunas[6]) // Coluna G: Lê o que foi trabalhado
+                quadras: textoQuadras // Campo higienizado
             });
         }
 
@@ -75,7 +81,7 @@ function renderizarMapas() {
                     
                     <input type="text" class="input-quadras" 
                            id="input-mapa-${mapa.id}"
-                           value="${mapa.quadras || ''}"
+                           value="${mapa.quadras}"
                            onchange="salvarDadosNaPlanilha('${mapa.id}', this)"
                            placeholder="O que foi feito? ex: Q1, Q2..." 
                            style="width:100%; padding:12px; background:#2a2a2a; border:1px solid #444; color:#fff; border-radius:8px; box-sizing:border-box; margin-bottom:10px;">
@@ -102,9 +108,9 @@ window.salvarDadosNaPlanilha = async function(idMapa, inputElement) {
     inputElement.style.border = "1px solid #f1c40f";
 
     try {
-        const response = await fetch(URL_GRAVACAO_GOOGLE, {
+        await fetch(URL_GRAVACAO_GOOGLE, {
             method: "POST",
-            mode: "no-cors", // Crucial para o Google Apps Script aceitar requisições externas
+            mode: "no-cors", 
             headers: {
                 "Content-Type": "application/json"
             },
