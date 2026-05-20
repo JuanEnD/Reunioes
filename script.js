@@ -106,40 +106,38 @@ function renderizarMapas() {
 // =========================================================================
 window.salvarDadosNaPlanilha = async function(idMapa, inputElement) {
     const textoDigitado = inputElement.value;
-    
-    // Feedback visual: borda amarela enquanto envia
+
     inputElement.style.border = "1px solid #f1c40f";
 
     try {
-        await fetch(URL_GRAVACAO_GOOGLE, {
+
+        const resposta = await fetch(URL_GRAVACAO_GOOGLE, {
             method: "POST",
-            mode: "no-cors",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
             body: new URLSearchParams({
                 id: idMapa,
                 quadras: textoDigitado
             })
         });
 
-        // Atualiza a informação na nossa variável global para persistir sem precisar de F5
+        console.log("Resposta:", resposta);
+
         const territorio = territoriosGlobal.find(t => t.id === idMapa);
         if (territorio) {
             territorio.quadras = textoDigitado;
         }
 
-        // Feedback visual: borda verde de sucesso
         inputElement.style.border = "1px solid #27ae60";
-        setTimeout(() => { inputElement.style.border = "1px solid #444"; }, 2000);
+        setTimeout(() => {
+            inputElement.style.border = "1px solid #444";
+        }, 2000);
 
     } catch (error) {
+
         console.error("Erro ao salvar dados na planilha:", error);
-        // Feedback visual: borda vermelha de erro
         inputElement.style.border = "1px solid #e74c3c";
+
     }
 };
-
 // =========================================================================
 // 5. FUNÇÕES DE SUPORTE WINDOWS (DARK MODE, BUSCA, MODAL)
 // =========================================================================
